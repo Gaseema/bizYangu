@@ -1,10 +1,15 @@
 extends layout
 
 block content
+  div(class="row homePageNav")
+    ul.right(style="")
+     li.btn.whiteBtn() Sign Up
+     li.btn.whiteBtn(style="background: #389DF5; color: white;") Log In
+     li.btn.whiteBtn(style="border-radius: 50%; width: 30px; height: 30px; padding: 0px; font-weight: bold;") ?
   div(class="row bizYanguBanner")
     div(class="centerBannerDiv")
-      h1 Welcome to BizYangu
-      p(style="color:white;") A Multi-Tenant E-commerce Site.
+      h1 BizYangu
+      p(style="color:white;padding-bottom: 15px; font-size: 2em;") Build Your Online Presence
       a(href="/profile" class="waves-effect waves-light btn whitebutton") get started
 
   div(class="row aboutSection")

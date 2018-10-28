@@ -63,10 +63,34 @@ body {
 .regularBtn:hover {
     background: #FF8535;
 }
+.whiteBtn {
+    background: white;
+    transition: 0.5s;
+    color: #595959;
+    font-size: 0.8em;
+}
+
+.whiteBtn:hover {
+    background: white;
+}
 
 /*********************************************
                 BIZ YANGU NAV
 *********************************************/
+/******* Home Page Nav  Start ****************/
+.homePageNav {
+    position: absolute;
+    z-index: 1;
+    right: 6%;
+}
+.homePageNav ul li{
+    margin: 0px 5px;
+    padding: 0px 15px;
+    height: 30px;
+    line-height: 30px;
+}
+/******* Home Page Nav  End ****************/
+
 #bizInfoHeader {
     margin: 0px;
     width: 88%;
@@ -292,10 +316,10 @@ body {
 
 .bizYanguBanner {
     background: #E3BB82;
-    height: 65vh;
+    height: 100vh;
     position: relative;
     margin-bottom: 0px;
-    background: linear-gradient(rgba(255, 133, 53, 0.54) 100%, rgba(0, 0, 0, 0.7)100%), url(../images/bizYanguImages/banner.jpg);
+    background: linear-gradient(180deg, #00a0ee, #5900ffd1 50%),url(../images/bizYanguImages/angle-bg.png)  no-repeat scroll center bottom -120px / 100% auto;
     color: white;
     background-size: cover;
 }
