@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div(class="deleteBizHeader")
+    h1 #{title}: #{biz.biz_name}
+  p= biz.lifespan
+  
+  if biz_counter != 1
+    p This business has #{biz_counter} products. Do you really want to delete this Business?
+    div(name='imageId' value=biz.biz_banner)
+    form(method='POST' action='')
+      div.form-group
+        input#bizid.form-control(type='hidden',name='bizid', required='true', value=biz._id )
+
+      button.btn.btn-primary(type='submit') Delete
+  else
+    p This business has #{biz_counter} product. Do you really want to delete this Business?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#bizid.form-control(type='hidden',name='bizid', required='true', value=biz._id )
+
+      button.btn.btn-primary(type='submit') Delete
+  if biz_products.length
+    p #[strong This busines has the following products]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Products
+      dl
+      each product in biz_products
+        dt 
+          a(href=product.url) #{product.product_name}
+        dd #{product.summary}
+  else

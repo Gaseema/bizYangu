@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='prodCatName') Product Category:
+      input#name.form-control(type='text', placeholder='Fantasy, Poetry etc.' name='prodCatName' value=(undefined===prodCategory ? '' : prodCategory.name))
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

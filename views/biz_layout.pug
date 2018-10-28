@@ -1,0 +1,123 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(http-equiv="Cache-control" content="private")
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css')
+        link(href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet")
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css", integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
+        script(src='/javascripts/product.js')
+        script(src='/javascripts/biz.js')
+        script(src='/javascripts/core.js')
+        script(src='/javascripts/animations.js')
+    body
+        div.row#bizInfoHeader
+            ul.left
+                li
+                    span(style="width: 14px; float: left; color: black; margin-top: 3px; margin-right: 5px;")
+                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 511.626 511.626', style='enable-background:new 0 0 511.626 511.626;', xml:space='preserve')
+                            path(style="fill:#6D6C6C;" d='M49.106,178.729c6.472,4.567,25.981,18.131,58.528,40.685c32.548,22.554,57.482,39.92,74.803,52.099    c1.903,1.335,5.946,4.237,12.131,8.71c6.186,4.476,11.326,8.093,15.416,10.852c4.093,2.758,9.041,5.852,14.849,9.277    c5.806,3.422,11.279,5.996,16.418,7.7c5.14,1.718,9.898,2.569,14.275,2.569h0.287h0.288c4.377,0,9.137-0.852,14.277-2.569    c5.137-1.704,10.615-4.281,16.416-7.7c5.804-3.429,10.752-6.52,14.845-9.277c4.093-2.759,9.229-6.376,15.417-10.852    c6.184-4.477,10.232-7.375,12.135-8.71c17.508-12.179,62.051-43.11,133.615-92.79c13.894-9.703,25.502-21.411,34.827-35.116    c9.332-13.699,13.993-28.07,13.993-43.105c0-12.564-4.523-23.319-13.565-32.264c-9.041-8.947-19.749-13.418-32.117-13.418H45.679    c-14.655,0-25.933,4.948-33.832,14.844C3.949,79.562,0,91.934,0,106.779c0,11.991,5.236,24.985,15.703,38.974    C26.169,159.743,37.307,170.736,49.106,178.729z')
+                            path(style="fill:#6D6C6C;" d='M483.072,209.275c-62.424,42.251-109.824,75.087-142.177,98.501c-10.849,7.991-19.65,14.229-26.409,18.699    c-6.759,4.473-15.748,9.041-26.98,13.702c-11.228,4.668-21.692,6.995-31.401,6.995h-0.291h-0.287    c-9.707,0-20.177-2.327-31.405-6.995c-11.228-4.661-20.223-9.229-26.98-13.702c-6.755-4.47-15.559-10.708-26.407-18.699    c-25.697-18.842-72.995-51.68-141.896-98.501C17.987,202.047,8.375,193.762,0,184.437v226.685c0,12.57,4.471,23.319,13.418,32.265    c8.945,8.949,19.701,13.422,32.264,13.422h420.266c12.56,0,23.315-4.473,32.261-13.422c8.949-8.949,13.418-19.694,13.418-32.265    V184.437C503.441,193.569,493.927,201.854,483.072,209.275z')
+                    |test@gmail.com
+                li
+                    span(style="width: 12px; float: left; color: black; margin-top: 1px; margin-right: 5px;")
+                        svg#Capa_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewBox='0 0 578.106 578.106', style='enable-background:new 0 0 578.106 578.106;', xml:space='preserve')
+                            path(style="fill:#6D6C6C;", d='M577.83,456.128c1.225,9.385-1.635,17.545-8.568,24.48l-81.396,80.781\
+                            c-3.672,4.08-8.465,7.551-14.381,10.404c-5.916,2.857-11.729,4.693-17.439,5.508c-0.408,0-1.635,0.105-3.676,0.309\
+                            c-2.037,0.203-4.689,0.307-7.953,0.307c-7.754,0-20.301-1.326-37.641-3.979s-38.555-9.182-63.645-19.584\
+                            c-25.096-10.404-53.553-26.012-85.376-46.818c-31.823-20.805-65.688-49.367-101.592-85.68\
+                            c-28.56-28.152-52.224-55.08-70.992-80.783c-18.768-25.705-33.864-49.471-45.288-71.299\
+                            c-11.425-21.828-19.993-41.616-25.705-59.364S4.59,177.362,2.55,164.51s-2.856-22.95-2.448-30.294\
+                            c0.408-7.344,0.612-11.424,0.612-12.24c0.816-5.712,2.652-11.526,5.508-17.442s6.324-10.71,10.404-14.382L98.022,8.756\
+                            c5.712-5.712,12.24-8.568,19.584-8.568c5.304,0,9.996,1.53,14.076,4.59s7.548,6.834,10.404,11.322l65.484,124.236\
+                            c3.672,6.528,4.692,13.668,3.06,21.42c-1.632,7.752-5.1,14.28-10.404,19.584l-29.988,29.988c-0.816,0.816-1.53,2.142-2.142,3.978\
+                            s-0.918,3.366-0.918,4.59c1.632,8.568,5.304,18.36,11.016,29.376c4.896,9.792,12.444,21.726,22.644,35.802\
+                            s24.684,30.293,43.452,48.653c18.36,18.77,34.68,33.354,48.96,43.76c14.277,10.4,26.215,18.053,35.803,22.949\
+                            c9.588,4.896,16.932,7.854,22.031,8.871l7.648,1.531c0.816,0,2.145-0.307,3.979-0.918c1.836-0.613,3.162-1.326,3.979-2.143\
+                            l34.883-35.496c7.348-6.527,15.912-9.791,25.705-9.791c6.938,0,12.443,1.223,16.523,3.672h0.611l118.115,69.768\
+                            C571.098,441.238,576.197,447.968,577.83,456.128z')
+                    | +254 721 882 694
+                li
+                    span(style="width: 13px; float: left; color: black; margin-top: 1px; margin-right: 5px;")
+                        svg#Layer_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 512 512', style='enable-background:new 0 0 512 512;', xml:space='preserve')
+                            path(style="fill:#6D6C6C;" d='M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035    c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719    c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z')
+
+                    | Location
+                li
+                    span(style="width: 13px; float: left; color: black; margin-top: 1px; margin-right: 5px;")
+                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 97.16 97.16', style='enable-background:new 0 0 97.16 97.16;', xml:space='preserve')
+                            path(style="fill:#6D6C6C;" d='M48.58,0C21.793,0,0,21.793,0,48.58s21.793,48.58,48.58,48.58s48.58-21.793,48.58-48.58S75.367,0,48.58,0z M48.58,86.823    c-21.087,0-38.244-17.155-38.244-38.243S27.493,10.337,48.58,10.337S86.824,27.492,86.824,48.58S69.667,86.823,48.58,86.823z')
+                            path(style="fill:#6D6C6C;" d='M73.898,47.08H52.066V20.83c0-2.209-1.791-4-4-4c-2.209,0-4,1.791-4,4v30.25c0,2.209,1.791,4,4,4h25.832    c2.209,0,4-1.791,4-4S76.107,47.08,73.898,47.08z')
+
+
+                    | Shop Opens
+            ul.right
+                li
+                    svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 350 350', style='enable-background:new 0 0 350 350;width: 10px;float: left; margin-top: 4px; margin-right: 3px;', xml:space='preserve')
+                        path(style="fill: #6D6C6C;" d='M175,171.173c38.914,0,70.463-38.318,70.463-85.586C245.463,38.318,235.105,0,175,0s-70.465,38.318-70.465,85.587   C104.535,132.855,136.084,171.173,175,171.173z')
+                        path(style="fill: #6D6C6C;" d='M41.909,301.853C41.897,298.971,41.885,301.041,41.909,301.853L41.909,301.853z')
+                        path(style="fill: #6D6C6C;" d='M308.085,304.104C308.123,303.315,308.098,298.63,308.085,304.104L308.085,304.104z')
+                        path(style="fill: #6D6C6C;" d='M307.935,298.397c-1.305-82.342-12.059-105.805-94.352-120.657c0,0-11.584,14.761-38.584,14.761   s-38.586-14.761-38.586-14.761c-81.395,14.69-92.803,37.805-94.303,117.982c-0.123,6.547-0.18,6.891-0.202,6.131   c0.005,1.424,0.011,4.058,0.011,8.651c0,0,19.592,39.496,133.08,39.496c113.486,0,133.08-39.496,133.08-39.496   c0-2.951,0.002-5.003,0.005-6.399C308.062,304.575,308.018,303.664,307.935,298.397z')
+                    | My Account
+                li
+                    svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 612 612', style='enable-background:new 0 0 612 612;width: 10px;float: left; margin-top: 4px; margin-right: 3px;', xml:space='preserve')
+                        path(style="fill: #6D6C6C;"  d='M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411    c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513    c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101    c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104    c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194    c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485    c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z')
+                    | Twitter
+                li
+                    svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 96.124 96.123', style='enable-background:new 0 0 96.124 96.123; width: 10px;float: left; margin-top: 4px; margin-right: 3px;;', xml:space='preserve')
+                        path(style="fill: #6D6C6C;" d='M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803   c0,1.083,0.878,1.96,1.96,1.96h12.533v39.876c0,1.083,0.877,1.96,1.96,1.96h16.352c1.083,0,1.96-0.878,1.96-1.96V54.287h14.654   c1.083,0,1.96-0.877,1.96-1.96l0.006-15.803c0-0.52-0.207-1.018-0.574-1.386c-0.367-0.368-0.867-0.575-1.387-0.575H56.842v-9.246   c0-4.444,1.059-6.7,6.848-6.7l8.397-0.003c1.082,0,1.959-0.878,1.959-1.96V1.98C74.046,0.899,73.17,0.022,72.089,0.02z')
+
+                    | facebook
+        nav(class="bizYanguNav" style="height: fit-content;")
+            div.row(style="margin:0px; padding-top: 20px;")
+                div.col.s3(style="padding-top: 10px;")
+                    a(href="#", class="brand-logo left")
+                    div(style="display: inline; margin-left: 80px; font-size: 1em; font-weight: bold; color: #4c4b4b;")
+                        | BIZ NAME
+                div.col.s6
+                    img(src="/images/bizYanguImages/ad.jpg" style="width:100%;")
+                div.col.s3
+                    div#wishList-Cart
+                        div#wishListCounter
+                            div#wishIcon
+                                svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 510 510', style='enable-background:new 0 0 510 510; position: absolute; width: 15px; top: 3px; left: 0; right: 0; margin-left: auto; margin-right: auto; bottom: 0px; margin-top: auto; margin-bottom: auto;', xml:space='preserve')
+                                    path(style="fill:white;" d='M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55    C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z')
+                            div#wishCounter
+                                | 1
+                        div#cartListCounter
+                            a#cartIcon()
+                                svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 510 510', style='enable-background:new 0 0 510 510; position: absolute; width: 15px; top: 3px; left: 0; right: 0; margin-left: auto; margin-right: auto; bottom: 0px; margin-top: auto; margin-bottom: auto;', xml:space='preserve')
+                                    path( fill="white" d='M153,408c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S181.05,408,153,408z M0,0v51h51l91.8,193.8L107.1,306    c-2.55,7.65-5.1,17.85-5.1,25.5c0,28.05,22.95,51,51,51h306v-51H163.2c-2.55,0-5.1-2.55-5.1-5.1v-2.551l22.95-43.35h188.7    c20.4,0,35.7-10.2,43.35-25.5L504.9,89.25c5.1-5.1,5.1-7.65,5.1-12.75c0-15.3-10.2-25.5-25.5-25.5H107.1L84.15,0H0z M408,408    c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S436.05,408,408,408z')
+                            div#cartCounter
+                                | 1
+                        div#cartTotal
+                            h6(style="font-weight: bold; font-size: 1em; margin: 0;") Total
+                            p(style="margin: 0;") Ksh. 200
+        block content
+        footer(class="page-footer")
+            div(class="container")
+                div(class="row")
+                    div(class="col l3 s12")
+                        h5(class="white-text") Contact
+                        p(class="grey-text text-lighten-4") Phone: +254 721 000 000
+                        p(class="grey-text text-lighten-4") Email: sample@gmail.com
+                        p(class="grey-text text-lighten-4") Location: Tom Mboya, Nairobi Kenya
+                    div(class="col l3 s12")
+                        h5(class="white-text") Support
+                        a(style="color:white;") Terms & Conditions
+                        br
+                        a(style="color:white;") Help
+                    div(class="col l3 s12")
+                        h5(class="white-text") About
+                        a(style="color:white;") BizYangu
+                    div(class="col l3 s12")
+                        h5(class="white-text") Be in the know
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        button(class="waves-effect waves-light btn") open
+            div(class="footer-copyright")
+                div(class="container center") © 2018 BizYangu

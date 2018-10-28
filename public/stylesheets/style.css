@@ -1,0 +1,933 @@
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #54595f
+}
+
+body {
+    /* overflow-x: hidden; */
+    background: #F2F2F7;
+}
+
+.s5ths,
+.m5ths,
+.l5ths,
+.xl5ths {
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+.row .col.s5ths {
+    width: 20%;
+}
+
+@media only screen and (min-width: 601px) {
+    .row .col.m5ths {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .row .col.l5ths {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .row .col.xl5ths {
+        width: 20%;
+    }
+}
+
+/*********************************************
+                GLOBAL BUTTONS
+*********************************************/
+.redBtn {
+    background: red;
+    transition: 0.5s;
+    margin: 15px;
+}
+
+.redBtn:hover {
+    background: red;
+}
+
+.regularBtn {
+    background: #FF8535;
+    transition: 0.5s;
+}
+
+.regularBtn:hover {
+    background: #FF8535;
+}
+
+/*********************************************
+                BIZ YANGU NAV
+*********************************************/
+#bizInfoHeader {
+    margin: 0px;
+    width: 88%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 0px;
+}
+
+#bizInfoHeader ul {
+    margin: 2px;
+}
+
+#wishList-Cart {
+    padding-top: 25px;
+}
+
+#wishListCounter {
+    background: #FF7F21;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin: 0px 15px;
+    float: left;
+}
+
+#wishIcon {
+    height: 35px;
+}
+
+#wishCounter {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    background: white;
+    line-height: 1;
+    border: solid #FF7F21 2px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 3px;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+#cartListCounter {
+    background: #00A1E2;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin: 0px 15px;
+    float: left;
+}
+
+#cartIcon {
+    height: 35px;
+}
+
+#cartCounter {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    background: white;
+    line-height: 1;
+    border: solid #00A1E2 2px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 3px;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+#bizInfoHeader li {
+    display: inline-block;
+    padding: 0px 5px;
+    color: #6D6C6C;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#bizInfoHeader li:hover {
+    color: #FF7F21;
+}
+
+#cartTotal {
+    text-align: center;
+    line-height: 1.2;
+    width: 75px;
+    float: left;
+    margin-top: 0px;
+}
+
+.bizYanguNav .dropdown-content {
+    top: 50px !important;
+}
+
+.bizYanguNav .dropdown-content .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #6a6565;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bizYanguNav {
+    background: white;
+    z-index: 1000;
+    color: black;
+    top: 0px;
+    padding: 0px 6%;
+    box-shadow: none;
+    border-bottom: none;
+    /* line-height: 64px; */
+}
+
+.bizYanguNav form {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bizYanguNav ul li a {
+    display: inline-block;
+    color: #1d1d1d;
+    transition: 0.5s;
+}
+
+.bizYanguNav ul li a:hover {
+    background: none;
+    color: #FF8535;
+}
+
+.bizYanguNav .brand-logo {
+    /* background: orange; */
+    border-radius: 50%;
+    width: 70px;
+    /* height: 70px; */
+    color: black;
+}
+
+/******* Secondary Nav *************/
+.sticky {
+    position: fixed;
+    top: 64px;
+    width: 100%;
+    animation: animatetop 0.4s;
+    z-index: 2;
+    background: red;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.sticky+.bizBanner {
+    margin-top: 50px;
+}
+
+#stickyHeader {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    background: white;
+    position: relative;
+}
+
+#stickyHeader ul {
+    margin: 0px 6% 0px 6%;
+}
+
+#stickyHeader li {
+    display: inline-block;
+    padding: 15px 10px;
+}
+
+#stickyHeader li a {
+    transition: 0.5s;
+    cursor: pointer;
+    color: #6d6d6d;
+    padding: 0px 5px;
+    font-weight: 100;
+}
+
+#stickyHeader li:first-child {
+    padding-left: 0px;
+}
+
+#stickyHeader li a:hover {
+    color: #FF8535;
+}
+
+/*********************************************
+            BIZ YANGU BANNER
+*********************************************/
+.bizBanner {
+    height: 75vh;
+}
+
+.bizYanguBanner {
+    background: #E3BB82;
+    height: 65vh;
+    position: relative;
+    margin-bottom: 0px;
+    background: linear-gradient(rgba(255, 133, 53, 0.54) 100%, rgba(0, 0, 0, 0.7)100%), url(../images/bizYanguImages/banner.jpg);
+    color: white;
+    background-size: cover;
+}
+
+.bizYanguBanner h1 {
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.centerBannerDiv {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.whitebutton {
+    background: none;
+    border: solid white 1px;
+    box-shadow: none;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.whitebutton:hover {
+    background: white;
+    color: black;
+}
+
+/*********************************************
+            ABOUT SECTION
+*********************************************/
+.aboutSection {
+    background-color: whitesmoke;
+    margin-bottom: 0px;
+    position: relative;
+    height: 90vh;
+    padding: 6% 6%;
+}
+
+.aboutSection h5 {
+    margin: 0px;
+}
+
+.aboutSection #imageCard1 {
+    width: 27%;
+    height: 40%;
+    position: absolute;
+    top: 12%;
+    padding: 0;
+    object-fit: cover;
+}
+
+.aboutSection #imageCard2 {
+    width: 35%;
+    height: 37%;
+    margin-left: 20px;
+    position: absolute;
+    top: 55%;
+    padding: 0;
+    object-fit: cover;
+}
+
+.aboutSection #imageCard3 {
+    width: 30%;
+    height: 75%;
+    position: absolute;
+    top: 12%;
+    right: 6%;
+    padding: 0;
+    object-fit: cover;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 9px 20px 1px rgba(0, 0, 0, 0.61), 0 3px 1px -2px rgba(0, 0, 0, 0.59), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*********************************************
+         POPULAR SHOPS SECTION
+*********************************************/
+.popularShops {
+    background: linear-gradient(rgba(255, 255, 255, 0.96) 100%, rgba(0, 0, 0, 0.7)100%), url(../images/bizYanguImages/mini-banner3.jpg);
+    margin-bottom: 0px;
+    padding: 6%;
+}
+
+.popularShops h5 {
+    margin: 0px;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+    /* color: #FF7F21; */
+}
+
+.listBizImg {
+    height: 200px;
+    width: 100%;
+    background: gray;
+}
+
+/*********************************************
+         REGISTER SHOPS SECTION
+*********************************************/
+.registerShop {
+    background: linear-gradient(rgba(255, 133, 53, 0.78) 100%, rgba(0, 0, 0, 0.7)100%), url(../images/bizYanguImages/getStarted.jpg);
+    margin-bottom: 0px;
+    text-align: center;
+    padding: 6%;
+    color: white;
+}
+
+.registerShop h5 {
+    margin: 0px;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: white;
+}
+
+/*********************************************
+         REGISTER SHOPS SECTION
+*********************************************/
+.page-footer {
+    background: #213539;
+}
+
+.page-footer .container {
+    width: 88%;
+}
+
+.footer-copyright {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            BIZ HOME PAGE
+**********************************************
+**********************************************
+*********************************************/
+.bizBanner {
+    position: relative;
+}
+
+.bizBanner .bizName {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+    background: #FF8535;
+    padding: 0px 19px;
+    left: 6%;
+}
+
+.bizBanner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prodSearch {
+    position: absolute;
+    right: 6%;
+    top: 0px;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#cartModal {
+    overflow: initial;
+    margin-top: 2%;
+    width: 40%;
+}
+
+#loginModal {
+    overflow: initial;
+    margin-top: 2%;
+    width: 40%;
+}
+
+/******************* Our Product ****************/
+#ourProducts h5 {
+    overflow: hidden;
+}
+
+#ourProducts h5:after {
+    background-color: #636363;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+
+#ourProducts h5:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+#ourProducts h5:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.prodRating svg {
+    width: 13px;
+}
+
+.prodRating ul {
+    margin: 0px;
+}
+
+.prodRating ul li {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+/*********************************************
+         SHOPPING LIST PAGE
+*********************************************/
+.shopListHero {
+    background: grey;
+    /* margin-top: 56px; */
+    padding: 3%;
+    background: url(../images/bizYanguImages/mini-banner5);
+    background: linear-gradient(rgba(0, 0, 0, 0.27) 100%, rgb(251, 0, 0)100%), url(../images/bizYanguImages/mini-banner9.jpg);
+    background-size: contain;
+}
+
+/*********************************************
+         BUSINESS HOME PAGE ADS
+*********************************************/
+.bizHomeAds {
+    height: 100%;
+    width: 100%;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*********************************************
+         PRODUCT LIST HOME PAGE
+*********************************************/
+.productCardView {
+    background: white;
+    border-radius: 1px;
+    height: max-content;
+    margin: 0px;
+}
+
+.productCardView img {
+    width: 100%;
+    height: 223px;
+    object-fit: cover;
+}
+
+.productCardView p {
+    margin: 0px;
+}
+
+.productCardContent {
+    margin: 5px 10px 10px 10px;
+    text-align: left;
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            PRODUCT PAGE
+**********************************************
+**********************************************
+*********************************************/
+.prodPageProdImg {
+    width: auto;
+    max-height: 50vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.prodPageName {
+    color: #1E201D;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0px;
+    line-height: 1;
+}
+
+.prodPageProdBiz {
+    color: #FF8535;
+    font-weight: 0.9em;
+}
+
+prodPageSummary {
+    color: #1E201D;
+}
+
+.backToBiz {
+    text-align: center;
+    background: #e3e3e3;
+    padding: 3%;
+    font-size: 2em;
+    margin-bottom: 0px;
+}
+
+.backToBiz a {
+    color: #1E201D;
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            BIZ LIST PAGE
+**********************************************
+**********************************************
+*********************************************/
+.bizListHero {
+    background: grey;
+    /* margin-top: 56px; */
+    padding: 3%;
+    background: url(../images/bizYanguImages/mini-banner5);
+    background: linear-gradient(rgba(0, 0, 0, 0.27) 100%, rgb(251, 0, 0)100%), url(../images/bizYanguImages/mini-banner9.jpg);
+    background-size: contain;
+}
+
+.bizListCard p {
+    margin: 0px;
+    padding: 0px 10px 5px 10px;
+    color: #292929;
+}
+
+.bizListCard {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            PRODUCT UPDATE PAGE
+**********************************************
+**********************************************
+*********************************************/
+.updateProdHero {
+    background: grey;
+    /* margin-top: 56px; */
+    padding: 3%;
+    background: url(../images/bizYanguImages/mini-banner5);
+    background: linear-gradient(rgba(0, 0, 0, 0.27) 100%, rgb(251, 0, 0)100%), url(../images/bizYanguImages/mini-banner8.jpg);
+    background-size: contain;
+}
+
+.updateProdHero h1 {
+    color: white;
+}
+
+.prodUpdateForm {
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.prodDelete {
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            Autocomplete Search Box
+**********************************************
+**********************************************
+*********************************************/
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    border-bottom-left-radius: 5px;
+}
+
+.autocomplete-items strong {
+    font-weight: bold !important;
+}
+
+input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+    height: 3rem;
+}
+
+input {
+    text-indent: 10px;
+}
+
+input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+input:-moz-placeholder {
+    /* Firefox 18- */
+    color: pink;
+    padding-left: 20px !importan;
+}
+
+input[type=submit] {
+    background-color: #FF9800;
+    color: #fff;
+    cursor: pointer;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            DELETE BIZ PAGE
+**********************************************
+**********************************************
+*********************************************/
+.deleteBizHeader {
+    background: red;
+    margin: 0px;
+    padding: 20px 10px 20px 10px;
+}
+
+.deleteBizHeader h1 {
+    margin: 0px;
+}
+
+@media only screen and (max-width: 720px) {
+    .deleteBizHeader h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            LOGIN PAGE
+**********************************************
+**********************************************
+*********************************************/
+.loginPage {
+    /* height: 100vh; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.loginPage h1 {
+    margin: 0px;
+    padding-bottom: 40px;
+}
+
+.loginPage a {
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 720px) {
+    .loginPage {
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .loginPage {
+        padding: 20px;
+    }
+
+    .loginPage p {
+        margin: 0px 25% 20px 25%;
+    }
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            PROFILE PAGE
+**********************************************
+**********************************************
+*********************************************/
+.createBiz {
+    padding: 10px;
+    text-align: center;
+}
+
+/*********************************************
+**********************************************
+**********************************************
+            BUSINESS UPDATE / CREATE PAGE
+**********************************************
+**********************************************
+*********************************************/
+.updateBizHero {
+    background: grey;
+    margin-top: 0px;
+    padding: 3%;
+}
+
+.updateBizHero h1 {
+    margin-left: 4%;
+    font-size: 3em;
+}
+
+.titleBlock {
+    border-left: solid #FF8535 26px;
+    font-weight: bold;
+    color: white;
+    padding-left: 12px;
+}
+
+.updateBizForm {
+    /* width: 100%; */
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    /* margin: 0px; */
+}
+
+.updateBizForm form {
+    padding: 10px;
+}
+
+.getBizProducts {
+    background: white;
+}
+
+.productHolder {
+    padding: 10px;
+}
+
+.productHolder .btn {
+    font-size: 0.8em
+}
+
+.productHolder .card {
+    padding-bottom: 1px;
+}
+
+.productHolderBtn {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin: 0px;
+    width: 100%;
+    margin-bottom: -1px;
+}
+
+@media only screen and (max-width: 352px) {
+    .productHolderBtn {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .rightPanel {
+        display: none;
+    }
+
+    .leftPanel {
+        display: none;
+    }
+
+    .middlePanel {
+        width: 100% !important;
+        /* display:  block; */
+        margin-left: auto;
+    }
+
+    .titleBlock {
+        font-size: 0.6em;
+        border-left: solid #FF8535 15px;
+        padding-left: 6px;
+    }
+}
+
+.getBizCategories {
+    background: white;
+}

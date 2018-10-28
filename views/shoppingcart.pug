@@ -1,0 +1,22 @@
+extends biz_layout
+
+block content
+    div(class="shopListHero")
+      h1(style="margin-left: 4%;")
+        span#bizid(class="titleBlock") Shopping List
+    div(class="row" style="width:50%; margin-top:30px;")
+        for product in prodList
+            each prd in product
+                .row(style='background: #eaeaea; padding: 10px 0px; border-radius: 3px;')
+                  .col.s3
+                    img(src='/uploads/'+ prd.product_pic style='width: 60px; height: 60px; border-radius: 50%;')
+                  .col.s6
+                    p(style='margin:0px;') #{prd.product_name}
+                    p(style='margin:0px;') Ksh. 3000
+                  .col.s3
+                    div
+                      button.btn(style='line-height: 1; font-size: 0.7em;') remove
+            else
+                p Your cart is empty.
+        else
+            p Your cart is empty.

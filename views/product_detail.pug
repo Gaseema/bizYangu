@@ -1,0 +1,47 @@
+extends biz_layout
+
+block content
+    div(id="stickyHeader")
+        ul
+            li
+                a(href="/biz/"+biz_id) Home
+                for category in bizs_categories
+                    a(href="/prodcategory/"+ category.id) #{category.name}
+                .right(style="width:300px;" class="prodSearch")
+                  div(class="row" style="margin-bottom:0px; background: #ececec;border-radius: 25px;")
+                    div(class="col s10" style="padding:0px;")
+                        form(autocomplete="off" action="/action_page.php")
+                          .autocomplete(style="width:100%;")
+                            input#myInput(type="text" name="myCountry" placeholder="Search..." onkeyup='checkPrds();' class="bizProdSearch" style="margin-bottom:0px; border-bottom: 0px;")
+                    div(class="col s2" style="padding:0px; position:relative;")
+                      input(type="submit" style="height: 3rem;width: 40px;" class="right" value="")
+                      svg#Capa_1(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewbox="0 0 485.213 485.213" style="enable-background:new 0 0 485.213 485.213;width: 20px; position: absolute; right: 12px;top:12px;" xml:space="preserve")
+                          path(fill="white" d="M471.882,407.567L360.567,296.243c-16.586,25.795-38.536,47.734-64.331,64.321l111.324,111.324    c17.772,17.768,46.587,17.768,64.321,0C489.654,454.149,489.654,425.334,471.882,407.567z")
+                          path(fill="white" d="M363.909,181.955C363.909,81.473,282.44,0,181.956,0C81.474,0,0.001,81.473,0.001,181.955s81.473,181.951,181.955,181.951    C282.44,363.906,363.909,282.437,363.909,181.955z M181.956,318.416c-75.252,0-136.465-61.208-136.465-136.46    c0-75.252,61.213-136.465,136.465-136.465c75.25,0,136.468,61.213,136.468,136.465    C318.424,257.208,257.206,318.416,181.956,318.416z")
+                          path(fill="white" d="M75.817,181.955h30.322c0-41.803,34.014-75.814,75.816-75.814V75.816C123.438,75.816,75.817,123.437,75.817,181.955z")
+    div(class="row"  style="margin-top: 100px;width:88%;")
+        div(class="col s12 m2")
+        div(class="col s12 m5")
+            img(class="prodPageProdImg" src=product_pic)
+        div(class="col s12 m5")
+            p(class="prodPageName") #{product.product_name}
+            a(class="prodPageProdBiz") Ksh.  #{product.product_price}
+            p(class="prodPageSummary") #{product.summary}
+    div(class="row recommended" style="padding-top: 20px; padding-bottom: 20px;width: 80%;")
+        h4(style="border-bottom: solid 1px #c5c1c1;") Recommended Products
+        for prod in recommended
+            .col.s3
+                div(style="background:white;")
+                    div
+                        img(style="width:100%;height:150px;object-fit:cover;" src=/uploads/ + prod.product_pic)
+                    div(style="padding-left: 10px;")
+                        p() #{prod.product_name}
+                        p() #{prod.product_price}
+                    div(style="text-align:center;padding-bottom: 15px")
+                        button.btn(style="font-size: 0.7em; padding: 0px 10px; margin-right: 10px; background: none; color: #333333; border: solid #504d4d 1px;") add to cart
+                        a.btn(href="/product/"+prod.id style="font-size: 0.7em; padding: 0px 15px; margin-right: 10px; background: none; color: #333333; border: solid #504d4d 1px;") details
+    div(class="row backToBiz")
+        a(href=product.biz.url)
+            svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494; width:20px; margin-right: 20px;" xml:space="preserve")
+                path(style="fill:#1E201D;" d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z")
+            |Back To Homepage

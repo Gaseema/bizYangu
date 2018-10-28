@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  div(class="updateProdHero")
+    if product === undefined
+        h1
+            span#bizid(class="titleBlock") Create new product
+    else
+        h1
+            span#bizid(class="titleBlock") Manage #{product.product_name}
+
+  div(class="row" style="margin-top:20px;width: 88%;")
+    div(class="col s12 m3")
+    div(class="col s12 m6")
+        div(class="prodUpdateForm")
+            div(style="border-bottom:solid 1px #d2d2d2;")
+                if product === undefined
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create product
+                else
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Update this product
+            div(style="padding: 10px;")
+                form(method='POST', action='', enctype="multipart/form-data")
+                    div.form-group
+                      label(for='product_name') Product Name:
+                      input#title.form-control(type='text', placeholder='Name of product' name='product_name' required='true' value=(undefined===product ? '' : product.product_name) )
+                    div.form-group
+                      label(for='product_name') Product Price:
+                      input#title.form-control(type='number', placeholder='Price of product' name='product_price' required='true' value=(undefined===product ? '' : product.product_price))
+                    div.form-group
+                        label(for='biz') Biz:
+                          select#biz.form-control(type='select', placeholder='Select biz' name='biz' required='true' )
+                            for biz in bizs
+                              if product
+                                option(value=biz._id selected=(biz._id.toString()==product.biz ? 'selected' : false) ) #{biz.biz_name}
+                              else
+                                option(value=biz._id) #{biz.biz_name}
+                    div.form-group
+                        label(for='name') Product Category:
+                          select#biz.form-control(type='select', placeholder='Select category' name='name' required='true' )
+                            for prodCategory in prodCategories
+                              if product
+                                option(value=prodCategory._id selected=(prodCategory._id.toString()==product.prodCategory ? 'selected' : false) ) #{prodCategory.name}
+                              else
+                                option(value=prodCategory._id) #{prodCategory.name}
+                    div.form-group
+                      label(for='summary') Summary:
+                      input#summary.form-control(type='textarea', placeholder='Summary' name='summary' value=(undefined===product ? '' : product.summary) required='true')
+                    .file-field.input-field
+                        .btn.grey
+                          span File
+                          input(name='myImage' type='file' required)
+                        .file-path-wrapper
+                          input.file-path.validate(type='text')
+                    button.btn.btn-primary(type='submit') Submit
+    if product === undefined
+
+    else
+        div(class="col s12 m3")
+            div(class="prodDelete" style="margin-bottom:10px;")
+                div(style="border-bottom:solid 1px #d2d2d2;")
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create new product
+                div(style="padding: 10px;")
+                    a(href="/product/create" class="regularBtn btn") create
+            div(class="prodDelete")
+                div(style="border-bottom:solid 1px #d2d2d2;")
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Delete this product
+                div(style="padding: 10px;")
+                    a(href="/product/"+product.id+"/delete" class="redBtn btn") delete
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

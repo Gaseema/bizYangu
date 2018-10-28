@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  h1 Category: #{category.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Businesses
+    
+    dl
+    each biz in category_biz
+      dt 
+        a(href=biz.url) #{biz.biz_name}
+
+    else
+      p This category has no businesses

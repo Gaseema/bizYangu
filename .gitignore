@@ -1,0 +1,5 @@
+/public/images
+/public/uploads
+/node_modules
+/.openode
+/server.js

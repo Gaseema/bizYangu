@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each prodCategory in category_list
+    li 
+      a(href=prodCategory.url) #{prodCategory.name} 
+
+  else
+    li There are no categories.
