@@ -3,8 +3,10 @@ extends layout
 block content
   div(class="row homePageNav")
     ul.right(style="")
-     li.btn.whiteBtn() Sign Up
-     li.btn.whiteBtn(style="background: #389DF5; color: white;") Log In
+     li.btn.whiteBtn()
+        a(href="/profile" style="color: black;") Sign Up
+     li.btn.whiteBtn(style="background: #389DF5; color: white;")
+        a(href="/profile" style="color: white;") Log In
      li.btn.whiteBtn(style="border-radius: 50%; width: 30px; height: 30px; padding: 0px; font-weight: bold;") ?
   div(class="row bizYanguBanner")
     div(class="centerBannerDiv")
@@ -14,49 +16,20 @@ block content
 
   div(class="row aboutSection")
     div(class="col s12 m4")
-      h4(style="font-weight: bold;") About Us
+      h4(style="font-weight: bold;") What You Get
       h5 Transform Customer Experiences
 
       h6 Remember good design always means good business...
       p - Deliver an irresistible, seamless shopping experience at every touchpoint with BizYangu
       p - BizYangu is so agile and user-friendly, you can launch your site quickly and smoothly, adapt to market needs in real time
+      p - Offer credit and mobile payments
     div(class="col s12 m8")
       img(src="../images/bizYanguImages/banner.jpg" class="card-panel teal" id="imageCard1")
       img(src="../images/bizYanguImages/banner1.jpg" class="card-panel teal" id="imageCard2")
       img(src="../images/bizYanguImages/about4.jpg" class="card-panel teal" id="imageCard3")
-
-  div(class="row popularShops")
-    h5(styel="text-align: center; font-size: 2.28em; font-weight: bold; padding-bottom: 30px;") Popular Shops
-    div(class="row")
-      ul(class="row")
-        a(class="listBiz col s12 m6 l3")
-          div(class="card")
-              div(class="listBizImg")
-              div(style="padding:10px;")
-                  div(class="listBizTitle" style="color: #FF7F21; font-weight: bold; font-size: 1.2em;") Lorem Ipsum
-                  div(class="listBizSlogan" style="color: #54595f;") Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        a(class="listBiz col s12 m6 l3")
-          div(class="card")
-              div(class="listBizImg")
-              div(style="padding:10px;")
-                  div(class="listBizTitle" style="color: #FF7F21; font-weight: bold; font-size: 1.2em;") Lorem Ipsum
-                  div(class="listBizSlogan" style="color: #54595f;") Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        a(class="listBiz col s12 m6 l3")
-          div(class="card")
-              div(class="listBizImg")
-              div(style="padding:10px;")
-                  div(class="listBizTitle" style="color: #FF7F21; font-weight: bold; font-size: 1.2em;") Lorem Ipsum
-                  div(class="listBizSlogan" style="color: #54595f;") Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        a(class="listBiz col s12 m6 l3")
-          div(class="card")
-              div(class="listBizImg")
-              div(style="padding:10px;")
-                  div(class="listBizTitle" style="color: #FF7F21; font-weight: bold; font-size: 1.2em;") Lorem Ipsum
-                  div(class="listBizSlogan" style="color: #54595f;") Lorem ipsum dolor sit amet, consectetur adipiscing elit
-
   div(class="row registerShop")
     h5 Get Started
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    p(style="color: white;") Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     a(href="/profile" class="waves-effect waves-light btn whitebutton") start
 
   if error

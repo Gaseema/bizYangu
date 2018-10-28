@@ -426,7 +426,7 @@ body {
          REGISTER SHOPS SECTION
 *********************************************/
 .registerShop {
-    background: linear-gradient(rgba(255, 133, 53, 0.78) 100%, rgba(0, 0, 0, 0.7)100%), url(../images/bizYanguImages/getStarted.jpg);
+    background: linear-gradient(180deg, #00a0ee, #5900ffd1 50%),url(../images/bizYanguImages/angle-bg.png) no-repeat scroll center bottom -120px / 100% auto;
     margin-bottom: 0px;
     text-align: center;
     padding: 6%;
