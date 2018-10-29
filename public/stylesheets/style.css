@@ -361,6 +361,7 @@ body {
     position: relative;
     height: 90vh;
     padding: 6% 6%;
+    background: linear-gradient(180deg, #ffffffd9, #ffffffd1 50%),url(../images/bizYanguImages/patterns2.jpg);
 }
 
 .aboutSection h5 {
