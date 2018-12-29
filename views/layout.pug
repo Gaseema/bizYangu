@@ -5,10 +5,9 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(http-equiv="Cache-control" content="private")
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css')
     link(href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet")
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet', type='text/css', media='all')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css", integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
     script(src='/javascripts/product.js')
@@ -16,25 +15,85 @@ html(lang='en')
   body
     block content
 
-    footer(class="page-footer")
-          div(class="container")
-            div(class="row")
-              div(class="col l3 s12")
-                h5(class="white-text") Contact
-                p(class="grey-text text-lighten-4") Phone: +254 721 000 000
-                p(class="grey-text text-lighten-4") Email: sample@gmail.com
-                p(class="grey-text text-lighten-4") Location: Tom Mboya, Nairobi Kenya
-              div(class="col l3 s12")
-                h5(class="white-text") Support
-                a(style="color:white;") Terms & Conditions
-                br
-                a(style="color:white;") Help
-              div(class="col l3 s12")
-                h5(class="white-text") About
-                a(style="color:white;") BizYangu
-              div(class="col l3 s12")
-                h5(class="white-text") Be in the know
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                button(class="waves-effect waves-light btn") open
-          div(class="footer-copyright")
-            div(class="container center") © 2018 BizYangu
+    .footer
+      .footer-middle
+        .container
+          .col-md-3.footer-middle-in
+            h1(style=' color: white; font-weight: bold; margin-top: -29px;')
+                span(style=' color: #049bff; font-size: 1.1em;') Biz
+                | Yangu
+
+            p(style="margin-top: 0px;")
+              | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
+          .col-md-3.footer-middle-in
+            h6(style="padding-bottom: 20px;") Support
+            ul.in
+              li
+                a(href='404.html') About
+              li
+                a(href='contact.html') Contact Us
+              li
+                a(href='#') Returns
+              li
+                a(href='contact.html') Site Map
+            ul.in.in1
+              li
+                a(href='#') Order History
+              li
+                a(href='wishlist.html') Wish List
+              li
+                a(href='login.html') Login
+            .clearfix
+          .col-md-3.footer-middle-in
+            h6(style="padding-bottom: 20px;") Tags
+            ul.tag-in
+              li
+                a(href='#') Lorem
+              li
+                a(href='#') Sed
+              li
+                a(href='#') Ipsum
+              li
+                a(href='#') Contrary
+              li
+                a(href='#') Chunk
+              li
+                a(href='#') Amet
+              li
+                a(href='#') Omnis
+          .col-md-3.footer-middle-in
+            h6(style="padding-bottom: 20px;") Newsletter
+            span Sign up for News Letter
+            form
+              input(type='text', value='Enter your E-mail', onfocus="this.value='';", onblur="if (this.value == '') {this.value ='Enter your E-mail';}")
+              input(type='submit', value='Subscribe')
+          .clearfix
+      .footer-bottom
+        .container
+          ul.footer-bottom-top
+            li
+              a(href='#')
+                img.img-responsive(src='/images/bizYanguImages/f1.png', alt='')
+            li
+              a(href='#')
+                img.img-responsive(src='/images/bizYanguImages/f2.png', alt='')
+            li
+              a(href='#')
+                img.img-responsive(src='/images/bizYanguImages/f3.png', alt='')
+          p.footer-class
+            | © 2018 BizYangu All Rights Reserved
+          .clearfix
+
+
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(src='/javascripts/simpleCart.min.js')
+      // slide
+      script(src='/javascripts/bootstrap.min.js')
+      // light-box-files
+      script(src='/javascripts/jquery.chocolat.js')
+      link(rel='stylesheet', href='/stylesheets/chocolat.css', type='text/css', media='screen', charset='utf-8')
+      // light-box-files
+      script(type='text/javascript', charset='utf-8').
+        $(function() {
+            $('a.picture').Chocolat();
+        });

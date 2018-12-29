@@ -1,129 +1,467 @@
-extends biz_layout
+doctype html
+html
+  head
+    title
+      | shopName
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet', type='text/css', media='all')
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css', media='all')
+    link(href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet")
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='keywords', content='Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template, \
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+    script(type='application/x-javascript').
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
-block content
-  div(id="stickyHeader")
-    ul
-        li
-            a(href=biz_id) Home
-            for category in biz_categories
-                a(href="/prodcategory/"+ category.id) #{category.name}
-        .right(style="width:300px;" class="prodSearch")
-          div(class="row" style="margin-bottom:0px; background: #ececec;border-radius: 25px;")
-            div(class="col s10" style="padding:0px;")
-                form(autocomplete="off" action="/action_page.php")
-                  .autocomplete(style="width:100%;")
-                    input#myInput(type="text" name="myCountry" placeholder="Search..." onkeyup='checkPrds();' class="bizProdSearch" style="margin-bottom:0px; border-bottom: 0px;")
-            div(class="col s2" style="padding:0px; position:relative;")
-              input(type="submit" style="height: 3rem;width: 40px;" class="right" value="")
-              svg#Capa_1(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewbox="0 0 485.213 485.213" style="enable-background:new 0 0 485.213 485.213;width: 20px; position: absolute; right: 12px;top:12px;" xml:space="preserve")
-                  path(fill="white" d="M471.882,407.567L360.567,296.243c-16.586,25.795-38.536,47.734-64.331,64.321l111.324,111.324    c17.772,17.768,46.587,17.768,64.321,0C489.654,454.149,489.654,425.334,471.882,407.567z")
-                  path(fill="white" d="M363.909,181.955C363.909,81.473,282.44,0,181.956,0C81.474,0,0.001,81.473,0.001,181.955s81.473,181.951,181.955,181.951    C282.44,363.906,363.909,282.437,363.909,181.955z M181.956,318.416c-75.252,0-136.465-61.208-136.465-136.46    c0-75.252,61.213-136.465,136.465-136.465c75.25,0,136.468,61.213,136.468,136.465    C318.424,257.208,257.206,318.416,181.956,318.416z")
-                  path(fill="white" d="M75.817,181.955h30.322c0-41.803,34.014-75.814,75.816-75.814V75.816C123.438,75.816,75.817,123.437,75.817,181.955z")
-  if active_user == undefined
-  else
-    p#active-user(style="display:none;") #{active_user}
-  div(class="bizBanner" id="activeBiz" bizId=biz_id)
-    img(src=biz_banner)
-    h1(class="bizName") Business: #{biz.biz_name}
+    // theme-style
+    link(href='/stylesheets/style4.css', rel='stylesheet', type='text/css', media='all')
 
-  div(class="row" style="width:88%;margin-top: 30px;")
-    div(class="row" style="display:flex;")
-        //div(class="col s12 m3" style="padding:0px;")
-            div(class="bizHomeAds")
-        div(class="col s12 m12" style="")
-            div(class="row" style="margin-bottom: 0px;")
-                each product in biz_products
-                    div(class="col s6 m3 l5ths" style="padding: 0px 5px 10px 5px;")
-                        a()
-                          div(class="productCardView card" id=product.id)
-                            a(href="/product/"+product.id)
-                                img(class="activator", src='/uploads/'+product.product_pic)
-                            div(class="productCardContent")
-                                a(href="/product/"+product.id class="productName" style="color:#54595f;") #{product.product_name}
-                                p() Ksh.
-                                    span(class="productPrice") #{product.product_price}
-                                div(style="text-align:center;")
-                                    a.btn.addToCart(style="font-size: 0.7em;padding: 0px 5px;font-size: 0.7em; padding: 0px 5px; margin-top: 10px; background: none; color: #333333; border: solid #504d4d 1px;") add to cart
-                else
-                    p This Business has no Products.
-    #loginModal.modal(style="text-align:center;")
-        svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', viewbox='0 0 512 512' style="width: 100px; margin-top: -50px;")
-          lineargradient#a(gradienttransform='matrix(1 0 0 -1 0 -15338)', gradientunits='userSpaceOnUse', x1='0', x2='512', y1='-15594', y2='-15594')
-            stop(offset='0', stop-color='#31d8ff')
-            stop(offset='1', stop-color='#ff80ff')
-          path(d='m512 256c0 141.386719-114.613281 256-256 256s-256-114.613281-256-256 114.613281-256 256-256 256 114.613281 256 256zm0 0', fill='url(#a)')
-          g(fill='#fff')
-            path(d='m375.359375 76.8125c-2.839844-3.667969-7.21875-5.8125-11.855469-5.8125h-178.453125c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h170.9375c61.753907 85.8125 61.753907 224.1875 0 310h-170.9375c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h178.453125c4.636719 0 9.015625-2.144531 11.855469-5.8125 36.527344-47.136719 56.640625-110.773438 56.640625-179.1875s-20.113281-132.050781-56.640625-179.1875zm0 0')
-            path(d='m226.761719 301.125c-5.859375 5.859375-5.859375 15.355469 0 21.214844 2.929687 2.929687 6.769531 4.394531 10.605469 4.394531 3.839843 0 7.679687-1.464844 10.605468-4.394531l55.734375-55.734375c5.769531-5.765625 5.769531-15.445313 0-21.210938l-55.734375-55.734375c-5.855468-5.855468-15.355468-5.855468-21.210937 0-5.859375 5.859375-5.859375 15.355469 0 21.214844l30.125 30.125h-179.886719c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h179.886719zm0 0')
+    // //theme-style
+    script(src='/javascripts/jquery.min.js')
 
+    // - start-rate--
+    script(src='/javascripts/jstarbox.js')
+    link(rel='stylesheet', href='/stylesheets/jstarbox.css', type='text/css', media='screen', charset='utf-8')
+    script(type='text/javascript').
+      jQuery(function() {
+        jQuery('.starbox').each(function() {
+            var starbox = jQuery(this);
+            starbox.starbox({
+                average: starbox.attr('data-start-value'),
+                changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+                ghosting: starbox.hasClass('ghosting'),
+                autoUpdateAverage: starbox.hasClass('autoupdate'),
+                buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+                stars: starbox.attr('data-star-count') || 5
+            }).bind('starbox-value-changed', function(event, value) {
+                if(starbox.hasClass('random')) {
+                    var val = Math.random();
+                    starbox.next().text(' '+val);
+                    return val;
+                }
+            })
+        });
+      });
 
-        h4(style="font-size: 2em;") Login to add to cart
-        .modal-content(style="overflow-x: hidden; max-height: 50vh; overflow-y: scroll;")
-            a.waves-effect.waves-light.btn(href='/auth/google/', style='background:#F03639;')
-              i.material-icons.left
-                svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewbox='0 0 512 512', style='enable-background:new 0 0 512 512; width: 30px; margin-top: 3px;', xml:space='preserve')
-                  polygon(points='448,224 448,160 416,160 416,224 352,224 352,256 416,256 416,320 448,320 448,256 512,256 512,224   ', fill='white')
-                  path(d='M160,224v64h90.528c-13.216,37.248-48.8,64-90.528,64c-52.928,0-96-43.072-96-96c0-52.928,43.072-96,96-96    c22.944,0,45.024,8.224,62.176,23.168l42.048-48.256C235.424,109.824,198.432,96,160,96C71.776,96,0,167.776,0,256    s71.776,160,160,160s160-71.776,160-160v-32H160z', fill='white')
-              | Login with google
+    // -//End-rate--
 
-        .modal-footer
-            a.modal-close.waves-effect.waves-green.btn-flat(href='#!') close
-    #cartModal.modal(style="text-align:center;")
-        svg#Layer_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewbox='0 0 509.287 509.287', style='enable-background:new 0 0 509.287 509.287;width: 130px; margin-top: -75px;', xml:space='preserve')
-          circle(style='fill:#6EB1E1;', cx='254.644', cy='254.644', r='254.644')
-          polygon(style='fill:#DEDEDF;', points='299.062,168.858 227.857,97.314 156.313,168.858 ')
-          polygon(style='fill:#F1F3F7;', points='437.743,168.858 342.464,73.918 247.523,168.858 ')
-          polygon(style='fill:#FCFCFD;', points='396.037,296.011 372.98,284.821 418.416,189.881 116.98,189.881 116.98,164.789   458.766,164.789 ')
-          circle(style='fill:#4F5565;', cx='349.584', cy='400.445', r='34.925')
-          circle(style='fill:#F1F3F7;', cx='349.584', cy='400.445', r='17.293')
-          circle(style='fill:#4F5565;', cx='223.11', cy='400.445', r='34.925')
-          circle(style='fill:#F1F3F7;', cx='223.11', cy='400.445', r='17.293')
-          g
-            path(style='fill:#4F5565;', d='M362.469,227.857h-171.91c-7.121,0-12.546-5.764-12.546-12.546c0-7.121,5.764-12.546,12.546-12.546   h171.91c7.121,0,12.546,5.764,12.546,12.546C375.015,222.432,369.25,227.857,362.469,227.857z')
-            path(style='fill:#4F5565;', d='M349.584,266.511H203.783c-7.121,0-12.546-5.764-12.546-12.546c0-6.781,5.764-12.546,12.546-12.546   h145.801c7.121,0,12.546,5.764,12.546,12.546C362.13,260.747,356.366,266.511,349.584,266.511z')
-          path(style='fill:#F0582F;', d='M29.499,85.107c-7.121,0-12.546,5.764-12.546,12.546c-0.339,7.121,5.425,12.885,12.546,12.885H65.78  v-25.43H29.499z')
-          path(style='fill:#FCFCFD;', d='M389.256,277.701H178.352L91.211,92.228c-2.034-4.408-6.442-7.46-11.528-7.46H65.78v25.77h5.764  l87.142,185.473c2.034,4.408,6.442,7.46,11.528,7.46h219.041c8.138,0,14.58,6.442,14.58,14.58s-6.442,14.58-14.58,14.58H171.91  c-7.121,0-12.546,5.764-12.546,12.546c0,7.121,5.764,12.546,12.546,12.546h217.346c22.04,0,40.011-17.971,40.011-40.011  C429.266,295.672,411.295,277.701,389.256,277.701z')
+  body
+    // header
+    .header(style="position: relative;")
+      .container(style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
+        a(href='index.html', style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
+          img(src='/images/gillette-logo.png', alt='', style=' width: 100%; /* width: -webkit-fill-available; */')
 
-        h4(style="font-size: 2em;") Manager Your Cart
-        .modal-content(style="overflow-x: hidden; max-height: 50vh; overflow-y: scroll;")
-            div.cartList()
-        .modal-footer
-            a.modal-close.waves-effect.waves-green.btn-flat(href='#!') close
+      .header-top
+        .container
+          .col-sm-5.col-md-offset-2.header-login
+            ul
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='checkout.html') Checkout
+          .col-sm-5.header-social
+            ul
+              li
+                a(href='#')
+                  i
+              li
+                a(href='#')
+                  i.ic1
+              li
+                a(href='#')
+                  i.ic2
+              li
+                a(href='#')
+                  i.ic3
+              li
+                a(href='#')
+                  i.ic4
+          .clearfix
+      .container
+        .head-top
+          .col-sm-8.col-md-offset-2.h_menu4
+            nav.navbar.nav_bottom(role='navigation')
+              // Brand and toggle get grouped for better mobile display
+              .navbar-header.nav_2
+                button.navbar-toggle.collapsed.navbar-toggle1(type='button', data-toggle='collapse', data-target='#bs-megadropdown-tabs')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              // Collect the nav links, forms, and other content for toggling
+              #bs-megadropdown-tabs.collapse.navbar-collapse
+                ul.nav.navbar-nav.nav_1
+                  li
+                    a.color(href=biz_id) Home
+                  for category in biz_categories
+                      li
+                        a.color(href="/prodcategory/"+ category.id) #{category.name}
+              // /.navbar-collapse
+          .col-sm-2.search-right
+            ul.heart
+              li
+                a(href='wishlist.html')
+                  span.glyphicon.glyphicon-heart(aria-hidden='true')
+              li
+                a.play-icon.popup-with-zoom-anim(href='#small-dialog')
+                  i.glyphicon.glyphicon-search
+            .cart.box_1
+              a(href='checkout.html')
+                h3
+                  .total
+                    span.simpleCart_total
+                  img(src='/images/bizYanguImages/cart.png', alt='')
+              p
+                a.simpleCart_empty(href='javascript:;') Empty Cart
+            .clearfix
+            // -
+            // -pop-up-box--
+            link(href='/stylesheets/popuo-box.css', rel='stylesheet', type='text/css', media='all')
+            script(src='/javascripts/jquery.magnific-popup.js', type='text/javascript')
+            // -//pop-up-box--
+            #small-dialog.mfp-hide
+              .search-top
+                .login-search
+                  input(type='submit', value='')
+                  input(type='text', value='Search..', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Search..';}")
+                p Shopin
+            script.
+              $(document).ready(function() {
+              $('.popup-with-zoom-anim').magnificPopup({
+              type: 'inline',
+              fixedContentPos: false,
+              fixedBgPos: true,
+              overflowY: 'auto',
+              closeBtnInside: true,
+              preloader: false,
+              midClick: true,
+              removalDelay: 300,
+              mainClass: 'my-mfp-zoom-in'
+              });
+              });
+            // -
+          .clearfix
+    // banner
+    if active_user == undefined
+    else
+        p#active-user(style="display:none;") #{active_user}
+    .banner(id="activeBiz" bizId=biz_id style='background: linear-gradient(187deg, #00000042 0%, #0000003b 100%), url('+biz_banner+');background-size: cover;')
+      .container
+        section.rw-wrapper
+          h1.rw-sentence
+            span #{biz.biz_name}
+          p(style="color: white; padding-left: 10px;") Testing homepage layouts, slider, theme option panel, and much more.
+    // content
+    .content
+      .container
+        // products
+        .content-mid
+          h3 Trending Items
+          label.line
+          .mid-popular
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Women
+                      h6
+                        a(href='single.html') Sed ut perspiciati
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc1.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc1.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Women
+                      h6
+                        a(href='single.html') At vero eos
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc2.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc2.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Men
+                      h6
+                        a(href='single.html') Sed ut perspiciati
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc3.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc3.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Women
+                      h6
+                        a(href='single.html') On the other
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .clearfix
+          .mid-popular
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc4.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc4.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Men
+                      h6
+                        a(href='single.html') On the other
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc5.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc5.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Men
+                      h6
+                        a(href='single.html') Sed ut perspiciati
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc6.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc6.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Women
+                      h6
+                        a(href='single.html') At vero eos
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .col-md-3.item-grid.simpleCart_shelfItem
+              .mid-pop
+                .pro-img
+                  img.img-responsive(src='/images/bizYanguImages/pc7.jpg', alt='')
+                  .zoom-icon
+                    a.picture(href='/images/bizYanguImages/pc7.jpg', rel='title')
+                      i.glyphicon.glyphicon-search.icon
+                    a(href='single.html')
+                      i.glyphicon.glyphicon-menu-right.icon
+                .mid-1
+                  .women
+                    .women-top
+                      span Men
+                      h6
+                        a(href='single.html') Sed ut perspiciati
+                    .img.item_add
+                      a(href='#')
+                        img(src='/images/bizYanguImages/ca.png', alt='')
+                    .clearfix
+                  .mid-2
+                    p
+                      label $100.00
+                      em.item_price $70.00
+                    .block
+                      .starbox.small.ghosting
+                    .clearfix
+            .clearfix
+        // //products
+        // brand
+        .brand
+          .col-md-3.brand-grid
+            img.img-responsive(src='/images/bizYanguImages/ic.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='/images/bizYanguImages/ic1.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='/images/bizYanguImages/ic2.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='/images/bizYanguImages/ic3.png', alt='')
+          .clearfix
 
-    div.row#ourProducts
-        h5 Our Products
-        div.ourProductsList
-            each product in biz_products
-                div(class="col s6 m3 l5ths" style="padding: 0px 5px 10px 5px;")
-                    a()
-                      div(class="productCardView card" id=product.id)
-                        a(href="/product/"+product.id)
-                            img(class="activator", src='/uploads/'+product.product_pic)
-                        div(class="productCardContent")
-                            p.brandName Sony
-                            a(href="/product/"+product.id class="productName" style="color:#54595f;") #{product.product_name}
-                            div.prodRating
-                                ul
-                                    li
-                                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 47.94 47.94', style='enable-background:new 0 0 47.94 47.94;', xml:space='preserve')
-                                            path(style='fill:#ED8A19;', d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z')
-                                    li
-                                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 47.94 47.94', style='enable-background:new 0 0 47.94 47.94;', xml:space='preserve')
-                                            path(style='fill:#ED8A19;', d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z')
-                                    li
-                                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 47.94 47.94', style='enable-background:new 0 0 47.94 47.94;', xml:space='preserve')
-                                            path(style='fill:#ED8A19;', d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z')
-                                    li
-                                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 47.94 47.94', style='enable-background:new 0 0 47.94 47.94;', xml:space='preserve')
-                                            path(style='fill:#ED8A19;', d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z')
-                                    li
-                                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 47.94 47.94', style='enable-background:new 0 0 47.94 47.94;', xml:space='preserve')
-                                            path(style='fill:#ED8A19;', d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z')
-
-                            p() Ksh.
-                                span(class="productPrice") #{product.product_price}
-                            div(style="text-align:center;")
-                                a.btn.addToCart(style="font-size: 0.7em;padding: 0px 5px;font-size: 0.7em; padding: 0px 5px; margin-top: 10px; background: none; color: #333333; border: solid #504d4d 1px;") add to cart
-            else
-                p This Business has no Products.
-    #{limited_cat_prod}
+    .footer
+        .footer-middle
+          .container
+            .col-md-3.footer-middle-in
+              a(href='index.html')
+                img(src='/images/bizYanguImages/log.png', alt='')
+              p
+                | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
+            .col-md-3.footer-middle-in
+              h6 Information
+              ul.in
+                li
+                  a(href='404.html') About
+                li
+                  a(href='contact.html') Contact Us
+                li
+                  a(href='#') Returns
+                li
+                  a(href='contact.html') Site Map
+              ul.in.in1
+                li
+                  a(href='#') Order History
+                li
+                  a(href='wishlist.html') Wish List
+                li
+                  a(href='login.html') Login
+              .clearfix
+            .col-md-3.footer-middle-in
+              h6 Tags
+              ul.tag-in
+                li
+                  a(href='#') Lorem
+                li
+                  a(href='#') Sed
+                li
+                  a(href='#') Ipsum
+                li
+                  a(href='#') Contrary
+                li
+                  a(href='#') Chunk
+                li
+                  a(href='#') Amet
+                li
+                  a(href='#') Omnis
+            .col-md-3.footer-middle-in
+              h6 Newsletter
+              span Sign up for News Letter
+              form
+                input(type='text', value='Enter your E-mail', onfocus="this.value='';", onblur="if (this.value == '') {this.value ='Enter your E-mail';}")
+                input(type='submit', value='Subscribe')
+            .clearfix
+        .footer-bottom
+          .container
+            ul.footer-bottom-top
+              li
+                a(href='#')
+                  img.img-responsive(src='/images/bizYanguImages/f1.png', alt='')
+              li
+                a(href='#')
+                  img.img-responsive(src='/images/bizYanguImages/f2.png', alt='')
+              li
+                a(href='#')
+                  img.img-responsive(src='/images/bizYanguImages/f3.png', alt='')
+            p.footer-class
+              | © 2016 Shopin. All Rights Reserved | Design by
+              a(href='http://w3layouts.com/', target='_blank') W3layouts
+            .clearfix
+        // jQuery (necessary for Bootstrap's JavaScript plugins)
+        script(src='/javascripts/simpleCart.min.js')
+        // slide
+        script(src='/javascripts/bootstrap.min.js')
+        // light-box-files
+        script(src='/javascripts/jquery.chocolat.js')
+        link(rel='stylesheet', href='/stylesheets/chocolat.css', type='text/css', media='screen', charset='utf-8')
+        // light-box-files
+        script(type='text/javascript', charset='utf-8').
+          $(function() {
+          $('a.picture').Chocolat();
+          });

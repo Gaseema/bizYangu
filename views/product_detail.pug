@@ -1,47 +1,594 @@
-extends biz_layout
-
-block content
-    div(id="stickyHeader")
-        ul
-            li
-                a(href="/biz/"+biz_id) Home
-                for category in bizs_categories
-                    a(href="/prodcategory/"+ category.id) #{category.name}
-                .right(style="width:300px;" class="prodSearch")
-                  div(class="row" style="margin-bottom:0px; background: #ececec;border-radius: 25px;")
-                    div(class="col s10" style="padding:0px;")
-                        form(autocomplete="off" action="/action_page.php")
-                          .autocomplete(style="width:100%;")
-                            input#myInput(type="text" name="myCountry" placeholder="Search..." onkeyup='checkPrds();' class="bizProdSearch" style="margin-bottom:0px; border-bottom: 0px;")
-                    div(class="col s2" style="padding:0px; position:relative;")
-                      input(type="submit" style="height: 3rem;width: 40px;" class="right" value="")
-                      svg#Capa_1(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewbox="0 0 485.213 485.213" style="enable-background:new 0 0 485.213 485.213;width: 20px; position: absolute; right: 12px;top:12px;" xml:space="preserve")
-                          path(fill="white" d="M471.882,407.567L360.567,296.243c-16.586,25.795-38.536,47.734-64.331,64.321l111.324,111.324    c17.772,17.768,46.587,17.768,64.321,0C489.654,454.149,489.654,425.334,471.882,407.567z")
-                          path(fill="white" d="M363.909,181.955C363.909,81.473,282.44,0,181.956,0C81.474,0,0.001,81.473,0.001,181.955s81.473,181.951,181.955,181.951    C282.44,363.906,363.909,282.437,363.909,181.955z M181.956,318.416c-75.252,0-136.465-61.208-136.465-136.46    c0-75.252,61.213-136.465,136.465-136.465c75.25,0,136.468,61.213,136.468,136.465    C318.424,257.208,257.206,318.416,181.956,318.416z")
-                          path(fill="white" d="M75.817,181.955h30.322c0-41.803,34.014-75.814,75.816-75.814V75.816C123.438,75.816,75.817,123.437,75.817,181.955z")
-    div(class="row"  style="margin-top: 100px;width:88%;")
-        div(class="col s12 m2")
-        div(class="col s12 m5")
-            img(class="prodPageProdImg" src=product_pic)
-        div(class="col s12 m5")
-            p(class="prodPageName") #{product.product_name}
-            a(class="prodPageProdBiz") Ksh.  #{product.product_price}
-            p(class="prodPageSummary") #{product.summary}
-    div(class="row recommended" style="padding-top: 20px; padding-bottom: 20px;width: 80%;")
-        h4(style="border-bottom: solid 1px #c5c1c1;") Recommended Products
-        for prod in recommended
-            .col.s3
-                div(style="background:white;")
-                    div
-                        img(style="width:100%;height:150px;object-fit:cover;" src=/uploads/ + prod.product_pic)
-                    div(style="padding-left: 10px;")
-                        p() #{prod.product_name}
-                        p() #{prod.product_price}
-                    div(style="text-align:center;padding-bottom: 15px")
-                        button.btn(style="font-size: 0.7em; padding: 0px 10px; margin-right: 10px; background: none; color: #333333; border: solid #504d4d 1px;") add to cart
-                        a.btn(href="/product/"+prod.id style="font-size: 0.7em; padding: 0px 15px; margin-right: 10px; background: none; color: #333333; border: solid #504d4d 1px;") details
-    div(class="row backToBiz")
-        a(href=product.biz.url)
-            svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494; width:20px; margin-right: 20px;" xml:space="preserve")
-                path(style="fill:#1E201D;" d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z")
-            |Back To Homepage
+doctype html
+html
+  head
+    title
+      | Shopin A Ecommerce Category Flat Bootstrap Responsive Website Template | Single :: w3layouts
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet', type='text/css', media='all')
+    // Custom Theme files
+    // theme-style
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css', media='all')
+    // //theme-style
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='keywords', content='Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template, \
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+    script(type='application/x-javascript').
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    // theme-style
+    link(href='/stylesheets/style4.css', rel='stylesheet', type='text/css', media='all')
+    // //theme-style
+    script(src='/javascripts/jquery.min.js')
+    // - start-rate--
+    script(src='/javascripts/jstarbox.js')
+    link(rel='stylesheet', href='/stylesheets/jstarbox.css', type='text/css', media='screen', charset='utf-8')
+    script(type='text/javascript').
+      jQuery(function() {
+      jQuery('.starbox').each(function() {
+      var starbox = jQuery(this);
+      starbox.starbox({
+      average: starbox.attr('data-start-value'),
+      changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+      ghosting: starbox.hasClass('ghosting'),
+      autoUpdateAverage: starbox.hasClass('autoupdate'),
+      buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+      stars: starbox.attr('data-star-count') || 5
+      }).bind('starbox-value-changed', function(event, value) {
+      if(starbox.hasClass('random')) {
+      var val = Math.random();
+      starbox.next().text(' '+val);
+      return val;
+      }
+      })
+      });
+      });
+    // -//End-rate--
+    link(href='/stylesheets/form.css', rel='stylesheet', type='text/css', media='all')
+  body
+    // header
+    .header
+      .container
+        .head
+          .logo
+            a(href='index.html')
+              img(src='images/logo.png', alt='')
+      .header-top
+        .container
+          .col-sm-5.col-md-offset-2.header-login
+            ul
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='checkout.html') Checkout
+          .col-sm-5.header-social
+            ul
+              li
+                a(href='#')
+                  i
+              li
+                a(href='#')
+                  i.ic1
+              li
+                a(href='#')
+                  i.ic2
+              li
+                a(href='#')
+                  i.ic3
+              li
+                a(href='#')
+                  i.ic4
+          .clearfix
+      .container
+        .head-top
+          .col-sm-8.col-md-offset-2.h_menu4
+            nav.navbar.nav_bottom(role='navigation')
+              // Brand and toggle get grouped for better mobile display
+              .navbar-header.nav_2
+                button.navbar-toggle.collapsed.navbar-toggle1(type='button', data-toggle='collapse', data-target='#bs-megadropdown-tabs')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              // Collect the nav links, forms, and other content for toggling
+              #bs-megadropdown-tabs.collapse.navbar-collapse
+                ul.nav.navbar-nav.nav_1
+                  li
+                    a.color(href='index.html') Home
+                  li.dropdown.mega-dropdown.active
+                    a.color1(href='#', data-toggle='dropdown')
+                      | Women
+                      span.caret
+                    .dropdown-menu
+                      .menu-top
+                        .col1
+                          .h_nav
+                            h4 Submenu1
+                            ul
+                              li
+                                a(href='product.html') Accessories
+                              li
+                                a(href='product.html') Bags
+                              li
+                                a(href='product.html') Caps & Hats
+                              li
+                                a(href='product.html') Hoodies & Sweatshirts
+                        .col1
+                          .h_nav
+                            h4 Submenu2
+                            ul
+                              li
+                                a(href='product.html') Jackets & Coats
+                              li
+                                a(href='product.html') Jeans
+                              li
+                                a(href='product.html') Jewellery
+                              li
+                                a(href='product.html') Jumpers & Cardigans
+                              li
+                                a(href='product.html') Leather Jackets
+                              li
+                                a(href='product.html') Long Sleeve T-Shirts
+                        .col1
+                          .h_nav
+                            h4 Submenu3
+                            ul
+                              li
+                                a(href='product.html') Shirts
+                              li
+                                a(href='product.html') Shoes, Boots & Trainers
+                              li
+                                a(href='product.html') Sunglasses
+                              li
+                                a(href='product.html') Sweatpants
+                              li
+                                a(href='product.html') Swimwear
+                              li
+                                a(href='product.html') Trousers & Chinos
+                        .col1
+                          .h_nav
+                            h4 Submenu4
+                            ul
+                              li
+                                a(href='product.html') T-Shirts
+                              li
+                                a(href='product.html') Underwear & Socks
+                              li
+                                a(href='product.html') Vests
+                              li
+                                a(href='product.html') Jackets & Coats
+                              li
+                                a(href='product.html') Jeans
+                              li
+                                a(href='product.html') Jewellery
+                        .col1.col5
+                          img.img-responsive(src='images/me.png', alt='')
+                        .clearfix
+                  li.dropdown.mega-dropdown.active
+                    a.color2(href='#', data-toggle='dropdown')
+                      | Men
+                      span.caret
+                    .dropdown-menu.mega-dropdown-menu
+                      .menu-top
+                        .col1
+                          .h_nav
+                            h4 Submenu1
+                            ul
+                              li
+                                a(href='product.html') Accessories
+                              li
+                                a(href='product.html') Bags
+                              li
+                                a(href='product.html') Caps & Hats
+                              li
+                                a(href='product.html') Hoodies & Sweatshirts
+                        .col1
+                          .h_nav
+                            h4 Submenu2
+                            ul
+                              li
+                                a(href='product.html') Jackets & Coats
+                              li
+                                a(href='product.html') Jeans
+                              li
+                                a(href='product.html') Jewellery
+                              li
+                                a(href='product.html') Jumpers & Cardigans
+                              li
+                                a(href='product.html') Leather Jackets
+                              li
+                                a(href='product.html') Long Sleeve T-Shirts
+                        .col1
+                          .h_nav
+                            h4 Submenu3
+                            ul
+                              li
+                                a(href='product.html') Shirts
+                              li
+                                a(href='product.html') Shoes, Boots & Trainers
+                              li
+                                a(href='product.html') Sunglasses
+                              li
+                                a(href='product.html') Sweatpants
+                              li
+                                a(href='product.html') Swimwear
+                              li
+                                a(href='product.html') Trousers & Chinos
+                        .col1
+                          .h_nav
+                            h4 Submenu4
+                            ul
+                              li
+                                a(href='product.html') T-Shirts
+                              li
+                                a(href='product.html') Underwear & Socks
+                              li
+                                a(href='product.html') Vests
+                              li
+                                a(href='product.html') Jackets & Coats
+                              li
+                                a(href='product.html') Jeans
+                              li
+                                a(href='product.html') Jewellery
+                        .col1.col5
+                          img.img-responsive(src='images/me1.png', alt='')
+                        .clearfix
+                  li
+                    a.color3(href='product.html') Sale
+                  li
+                    a.color4(href='404.html') About
+                  li
+                    a.color5(href='typo.html') Short Codes
+                  li
+                    a.color6(href='contact.html') Contact
+              // /.navbar-collapse
+          .col-sm-2.search-right
+            ul.heart
+              li
+                a(href='wishlist.html')
+                  span.glyphicon.glyphicon-heart(aria-hidden='true')
+              li
+                a.play-icon.popup-with-zoom-anim(href='#small-dialog')
+                  i.glyphicon.glyphicon-search
+            .cart.box_1
+              a(href='checkout.html')
+                h3
+                  .total
+                    span.simpleCart_total
+                  img(src='images/cart.png', alt='')
+              p
+                a.simpleCart_empty(href='javascript:;') Empty Cart
+            .clearfix
+            // -
+            // -pop-up-box--
+            link(href='/stylesheets/popuo-box.css', rel='stylesheet', type='text/css', media='all')
+            script(src='/javascripts/jquery.magnific-popup.js', type='text/javascript')
+            // -//pop-up-box--
+            #small-dialog.mfp-hide
+              .search-top
+                .login-search
+                  input(type='submit', value='')
+                  input(type='text', value='Search..', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Search..';}")
+                p Shopin
+            script.
+              $(document).ready(function() {
+              $('.popup-with-zoom-anim').magnificPopup({
+              type: 'inline',
+              fixedContentPos: false,
+              fixedBgPos: true,
+              overflowY: 'auto',
+              closeBtnInside: true,
+              preloader: false,
+              midClick: true,
+              removalDelay: 300,
+              mainClass: 'my-mfp-zoom-in'
+              });
+              });
+            // -
+          .clearfix
+    // banner
+    .banner-top
+      .container
+        h1 Single
+        em
+        h2
+          a(href='index.html') Home
+          label /
+          | Single
+    .single
+      .container
+        .col-md-9
+          .col-md-5.grid
+            .flexslider
+              ul.slides
+                li(data-thumb='images/si.jpg')
+                  .thumb-image
+                    img.img-responsive(src='images/si.jpg', data-imagezoom='true')
+                li(data-thumb='images/si1.jpg')
+                  .thumb-image
+                    img.img-responsive(src='images/si1.jpg', data-imagezoom='true')
+                li(data-thumb='images/si2.jpg')
+                  .thumb-image
+                    img.img-responsive(src='images/si2.jpg', data-imagezoom='true')
+          .col-md-7.single-top-in
+            .span_2_of_a1.simpleCart_shelfItem
+              h3 Nam liber tempor cum
+              p.in-para  There are many variations of passages of Lorem Ipsum.
+              .price_single
+                span.reducedfrom.item_price $140.00
+                a(href='#') click for offer
+                .clearfix
+              h4.quick Quick Overview:
+              p.quick_desc
+                | Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es
+              .wish-list
+                ul
+                  li.wish
+                    a(href='#')
+                      span.glyphicon.glyphicon-check(aria-hidden='true')
+                      | Add to Wishlist
+                  li.compare
+                    a(href='#')
+                      span.glyphicon.glyphicon-resize-horizontal(aria-hidden='true')
+                      | Add to Compare
+              .quantity
+                .quantity-select
+                  .entry.value-minus  
+                  .entry.value
+                    span 1
+                  .entry.value-plus.active  
+              // quantity
+              script.
+                $('.value-plus').on('click', function(){
+                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                divUpd.text(newVal);
+                });
+                $('.value-minus').on('click', function(){
+                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                if(newVal>=1) divUpd.text(newVal);
+                });
+              // quantity
+              a.add-to.item_add.hvr-skew-backward(href='#') Add to cart
+              .clearfix
+          .clearfix
+          //
+          .tab-head
+            nav.nav-sidebar
+              ul.nav.tabs
+                li.active
+                  a(href='#tab1', data-toggle='tab') Product Description
+                li
+                  a(href='#tab2', data-toggle='tab') Additional Information
+                li
+                  a(href='#tab3', data-toggle='tab') Reviews
+            .tab-content.one
+              #tab1.tab-pane.active.text-style
+                .facts
+                  p
+                    | There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                  ul
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Research
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Design and Development
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Porting and Optimization
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | System integration
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Verification, Validation and Testing
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Maintenance and Support
+              #tab2.tab-pane.text-style
+                .facts
+                  p
+                    | Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                  ul
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Multimedia Systems
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Digital media adapters
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Set top boxes for HDTV and IPTV Player
+              #tab3.tab-pane.text-style
+                .facts
+                  p
+                    | There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                  ul
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Research
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Design and Development
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Porting and Optimization
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | System integration
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Verification, Validation and Testing
+                    li
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+                      | Maintenance and Support
+            .clearfix
+          //
+          // -
+        .col-md-3.product-bottom.product-at
+            // categories
+            .rsidebar.span_1_of_left
+              h4.cate Categories
+              ul.menu-drop
+                li.item1
+                  a(href='#') Men
+                  ul.cute
+                    li.subitem1
+                      a(href='product.html') Cute Kittens
+                    li.subitem2
+                      a(href='product.html') Strange Stuff
+                    li.subitem3
+                      a(href='product.html') Automatic Fails
+                li.item2
+                  a(href='#') Women
+                  ul.cute
+                    li.subitem1
+                      a(href='product.html') Cute Kittens
+                    li.subitem2
+                      a(href='product.html') Strange Stuff
+                    li.subitem3
+                      a(href='product.html') Automatic Fails
+                li.item3
+                  a(href='#') Kids
+                  ul.cute
+                    li.subitem1
+                      a(href='product.html') Cute Kittens
+                    li.subitem2
+                      a(href='product.html') Strange Stuff
+                    li.subitem3
+                      a(href='product.html') Automatic Fails
+                li.item4
+                  a(href='#') Accessories
+                  ul.cute
+                    li.subitem1
+                      a(href='product.html') Cute Kittens
+                    li.subitem2
+                      a(href='product.html') Strange Stuff
+                    li.subitem3
+                      a(href='product.html') Automatic Fails
+                li.item4
+                  a(href='#') Shoes
+                  ul.cute
+                    li.subitem1
+                      a(href='product.html') Cute Kittens
+                    li.subitem2
+                      a(href='product.html') Strange Stuff
+                    li.subitem3
+                      a(href='product.html') Automatic Fails
+                // initiate accordion
+                script(type='text/javascript').
+                  $(function() {
+                  var menu_ul = $('.menu-drop > li > ul'),
+                  menu_a  = $('.menu-drop > li > a');
+                  menu_ul.hide();
+                  menu_a.click(function(e) {
+                  e.preventDefault();
+                  if(!$(this).hasClass('active')) {
+                  menu_a.removeClass('active');
+                  menu_ul.filter(':visible').slideUp('normal');
+                  $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                  } else {
+                  $(this).removeClass('active');
+                  $(this).next().stop(true,true).slideUp('normal');
+                  }
+                  });
+                  });
+                // //menu
+      // brand
+      .container
+        .brand
+          .col-md-3.brand-grid
+            img.img-responsive(src='images/ic.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='images/ic1.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='images/ic2.png', alt='')
+          .col-md-3.brand-grid
+            img.img-responsive(src='images/ic3.png', alt='')
+          .clearfix
+      // //brand
+      // //content
+      // //footer
+      .footer
+        .footer-middle
+          .container
+            .col-md-3.footer-middle-in
+              a(href='index.html')
+                img(src='images/log.png', alt='')
+              p
+                | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
+            .col-md-3.footer-middle-in
+              h6 Information
+              ul.in
+                li
+                  a(href='404.html') About
+                li
+                  a(href='contact.html') Contact Us
+                li
+                  a(href='#') Returns
+                li
+                  a(href='contact.html') Site Map
+              ul.in.in1
+                li
+                  a(href='#') Order History
+                li
+                  a(href='wishlist.html') Wish List
+                li
+                  a(href='login.html') Login
+              .clearfix
+            .col-md-3.footer-middle-in
+              h6 Tags
+              ul.tag-in
+                li
+                  a(href='#') Lorem
+                li
+                  a(href='#') Sed
+                li
+                  a(href='#') Ipsum
+                li
+                  a(href='#') Contrary
+                li
+                  a(href='#') Chunk
+                li
+                  a(href='#') Amet
+                li
+                  a(href='#') Omnis
+            .col-md-3.footer-middle-in
+              h6 Newsletter
+              span Sign up for News Letter
+              form
+                input(type='text', value='Enter your E-mail', onfocus="this.value='';", onblur="if (this.value == '') {this.value ='Enter your E-mail';}")
+                input(type='submit', value='Subscribe')
+            .clearfix
+        .footer-bottom
+          .container
+            ul.footer-bottom-top
+              li
+                a(href='#')
+                  img.img-responsive(src='images/f1.png', alt='')
+              li
+                a(href='#')
+                  img.img-responsive(src='images/f2.png', alt='')
+              li
+                a(href='#')
+                  img.img-responsive(src='images/f3.png', alt='')
+            p.footer-class
+              | © 2016 Shopin. All Rights Reserved | Design by
+              a(href='http://w3layouts.com/', target='_blank') W3layouts
+            .clearfix
+      // //footer
+      script(src='/javascripts/imagezoom.js')
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(defer='', src='/javascripts/jquery.flexslider.js')
+      link(rel='stylesheet', href='/stylesheets/flexslider.css', type='text/css', media='screen')
+      script.
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+        $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails"
+        });
+        });
+      script(src='/javascripts/simpleCart.min.js')
+      // slide
+      script(src='/javascripts/bootstrap.min.js')
