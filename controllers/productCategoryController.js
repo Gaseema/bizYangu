@@ -40,12 +40,10 @@ exports.prodcategory_detail = function(req, res) {
                 .exec(callback);
         },
         bizs_categories: function(callback) {
-            ProductCategory.findById(req.params.id, function(err, result) {
-                ProductCategory.find({
-                        'biz': result.biz
-                    }, 'name _id')
-                    .exec(callback)
-            })
+            ProductCategory.find({
+                    'biz': req.params.bizId
+                }, function(err, result) {})
+                .exec(callback)
         },
 
     }, function(err, results) {
@@ -58,7 +56,7 @@ exports.prodcategory_detail = function(req, res) {
             return next(err);
         }
         // Successful, so render
-        console.log(results.prodCategory.biz)
+        console.log(results.prodCategory_products)
         res.render('prodCategory_detail', {
             title: 'Category results',
             prodCategory: results.prodCategory,

@@ -18,7 +18,7 @@ var ProductCategorySchema = new Schema({
 ProductCategorySchema
     .virtual('url')
     .get(function () {
-        return '/prodcategory/' + this._id;
+        return '/biz/:bizId/prodcategory/' + this._id;
     });
 
 //Export model

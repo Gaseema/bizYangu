@@ -266,7 +266,7 @@ app.get('/prodcategory/:id/update', prodcategory_controller.prodcategory_update_
 app.post('/prodcategory/:id/update', prodcategory_controller.prodcategory_update_post);
 
 // GET request for one prodcategory.
-app.get('/prodcategory/:id', prodcategory_controller.prodcategory_detail);
+app.get('/biz/:bizId/prodcategory/:id', prodcategory_controller.prodcategory_detail);
 
 // GET request for list of all prodcategory.
 app.get('/prodcategories', prodcategory_controller.prodcategory_list);

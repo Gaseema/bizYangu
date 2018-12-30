@@ -21,7 +21,7 @@ html
     // header
     .header(style="position: relative;")
       .container(style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
-        a(href='index.html', style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
+        a(href=biz_id, style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
           img(src='/images/gillette-logo.png', alt='', style=' width: 100%; /* width: -webkit-fill-available; */')
 
       .header-top
@@ -70,7 +70,7 @@ html
                     a.color(href=biz_id) Home
                   for category in biz_categories
                       li
-                        a.color(href="/prodcategory/"+ category.id) #{category.name}
+                        a.color(href="/biz/" + biz_id + "/prodcategory/"+ category.id) #{category.name}
               // /.navbar-collapse
           .col-sm-2.search-right
             ul.heart
@@ -168,7 +168,7 @@ html
         .footer-middle
           .container
             .col-md-3.footer-middle-in
-              a(href='index.html')
+              a(href=biz_id)
                 img(src='/images/bizYanguImages/log.png', alt='')
               p
                 | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
