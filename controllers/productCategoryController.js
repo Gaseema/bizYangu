@@ -199,13 +199,12 @@ exports.prodcategory_delete_post = function(req, res) {
         // Remove the product
         ProductCategory.findByIdAndRemove(req.params.id, function deleteProductCategory(err) {
             if (err) {
-                return next(err);
+                return nex(err);
             }
             // Success - go to author list
             res.json(results);
         })
     });
-    console.log("working here")
 };
 
 // Display Genre update form on GET.

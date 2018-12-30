@@ -1,124 +1,215 @@
-extends layout
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv="Cache-control" content="private")
+    link(href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet")
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet', type='text/css', media='all')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css", integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
+  body(style="background: #F2F2F7;")
+      nav.bizYanguNav(style="height: 55px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.04), 0 6px 20px 0 rgba(0, 0, 0, 0.07);")
+        a.brand-logo.left(href='#' style='font-size: 1.5em; margin-left: 8%; display: flex; align-items: center; justify-content: center; height: 100%; max-width: 200px; float: left; color: #4a4a4a;')
+          span(style='color:#049BFF;font-weight:bold;') Biz
+          | Yangu
+        ul.right(style="list-style: none; margin-right: 8%; position: relative;")
+          li(style="line-height: 55px;")
+            a(href='/catalog') Home
+            a(href='/products') Products
+            a(href='/biz' style='padding-right: 45px;') Businesses
+            // User Settings
+            a(href='/profile', style='width: 30px; padding-top: 10px; position: absolute; right: 0px; top: 1px;')
+              svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 53 53', style='enable-background:new 0 0 53 53;width: 30px;', xml:space='preserve')
+                path(style='fill:#E7ECED;', d='M18.613,41.552l-7.907,4.313c-0.464,0.253-0.881,0.564-1.269,0.903C14.047,50.655,19.998,53,26.5,53  c6.454,0,12.367-2.31,16.964-6.144c-0.424-0.358-0.884-0.68-1.394-0.934l-8.467-4.233c-1.094-0.547-1.785-1.665-1.785-2.888v-3.322  c0.238-0.271,0.51-0.619,0.801-1.03c1.154-1.63,2.027-3.423,2.632-5.304c1.086-0.335,1.886-1.338,1.886-2.53v-3.546  c0-0.78-0.347-1.477-0.886-1.965v-5.126c0,0,1.053-7.977-9.75-7.977s-9.75,7.977-9.75,7.977v5.126  c-0.54,0.488-0.886,1.185-0.886,1.965v3.546c0,0.934,0.491,1.756,1.226,2.231c0.886,3.857,3.206,6.633,3.206,6.633v3.24  C20.296,39.899,19.65,40.986,18.613,41.552z')
+                path(style='fill:#556080;', d='M26.953,0.004C12.32-0.246,0.254,11.414,0.004,26.047C-0.138,34.344,3.56,41.801,9.448,46.76   c0.385-0.336,0.798-0.644,1.257-0.894l7.907-4.313c1.037-0.566,1.683-1.653,1.683-2.835v-3.24c0,0-2.321-2.776-3.206-6.633   c-0.734-0.475-1.226-1.296-1.226-2.231v-3.546c0-0.78,0.347-1.477,0.886-1.965v-5.126c0,0-1.053-7.977,9.75-7.977   s9.75,7.977,9.75,7.977v5.126c0.54,0.488,0.886,1.185,0.886,1.965v3.546c0,1.192-0.8,2.195-1.886,2.53   c-0.605,1.881-1.478,3.674-2.632,5.304c-0.291,0.411-0.563,0.759-0.801,1.03V38.8c0,1.223,0.691,2.342,1.785,2.888l8.467,4.233   c0.508,0.254,0.967,0.575,1.39,0.932c5.71-4.762,9.399-11.882,9.536-19.9C53.246,12.32,41.587,0.254,26.953,0.004z')
+      div(class="updateBizHero")
+        if biz === undefined
+            h1
+                span#bizid(class="titleBlock") Create New Business
+        else
+            h1
+                span#bizid(class="titleBlock" bizid=biz.id) Manage #{biz.biz_name}
 
-block content
-  div(class="updateBizHero")
-    if biz === undefined
-        h1
-            span#bizid(class="titleBlock") Create New Business
-    else
-        h1
-            span#bizid(class="titleBlock" bizid=biz.id) Manage #{biz.biz_name}
-
-  div(class="row" style="padding-top: 20px;width: 88%;")
-    div(class="col-sm-12 col-md-3 leftPanel")
-        div(class="adverts" style="background:white;width:100%;")
-            div(style="border-bottom:solid 1px #d2d2d2;")
-                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Settings
-            div()
-                ul(style="padding-left: 10px; font-size: 0.9em;")
-                    li Terms & Security
-                    li Help
-    div(class="col-sm-12 col-md-6 middlePanel")
-        div(class="row updateBizForm")
-          div(style="border-bottom:solid 1px #d2d2d2;")
-            if biz === undefined
-                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create Business
-            else
-                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Update Your Businesses
-          form(method='POST', action='',  enctype="multipart/form-data")
-            div.form-group
-              label(for='biz_name') Business Name:
-              input#biz_name.form-control(autocomplete='off' type='text', placeholder='Business name (Duka) last' name='biz_name' required='true' value=(undefined===biz ? '' : biz.biz_name))
-            div.form-group
-                label(for='name') Business Category:
+      div(class="row" style="padding-top: 20px;width: 88%;")
+        div(class="col-sm-12 col-md-3 leftPanel")
+            div(class="adverts" style="background:white;width:100%;")
+                div(style="border-bottom:solid 1px #d2d2d2;")
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Settings
+                div()
+                    ul(style="padding-left: 10px; font-size: 0.9em;")
+                        li Terms & Security
+                        li Help
+        div(class="col-sm-12 col-md-6 middlePanel")
+            div(class="row updateBizForm")
+              div(style="border-bottom:solid 1px #d2d2d2;")
+                if biz === undefined
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create Business
+                else
+                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Update Your Businesses
+              form(method='POST', action='',  enctype="multipart/form-data")
+                div.form-group
+                  label(for='biz_name') Business Name:
+                  input#biz_name.form-control(autocomplete='off' type='text', placeholder='Business name (Duka) last' name='biz_name' required='true' value=(undefined===biz ? '' : biz.biz_name))
+                div.form-group
+                  label(for='name' style="width: 100%") Business Category:
                   select#biz.form-control(type='select', placeholder='Select category' name='name' required='true' )
                     for category in categories
                       if biz
                         option(value=category._id selected=(category._id.toString()==biz.category ? 'selected' : false) ) #{category.name}
                       else
                         option(value=category._id) #{category.name}
-            .row(style="margin-bottom: 0;")
-              .input-field.col-sm-12(style="margin-bottom: 0;")
-                input#autocomplete-input.bizLocation(autocomplete="off" type='text' placeholder="Enter location" required="true" name="location" value=(undefined===biz ? '' : biz.location))
-                label(for='autocomplete-input') Location
-            .row
-              .input-field.col-sm-12
-                input#first_name.validate(autocomplete="on" placeholder='Enter Phone Number', type='number' required="true" name="phoneNo" value=(undefined===biz ? '' : biz.phoneNo))
-                label(for='first_name') Phone Number
+                .form-group
+                  .input-field(style="margin-bottom: 0; padding: 0px;")
+                    label(for='autocomplete-input') Location
+                    input.bizLocation.form-control(autocomplete="off" type='text' placeholder="Enter location" required="true" name="location" value=(undefined===biz ? '' : biz.location))
+                .form-group
+                  .input-field(style="padding: 0px;")
+                    label(for='first_name') Phone Number
+                    input#first_name.validate.form-control(autocomplete="on" placeholder='Enter Phone Number', type='number' required="true" name="phoneNo" value=(undefined===biz ? '' : biz.phoneNo))
 
-            .file-field.input-field
-                .btn(class="regularBtn")
-                  span File
-                  input(name='myImage' type='file')
-                .file-path-wrapper
-                  input.file-path.validate(type='text')
-            p(style="color:red;") #{errors}
-            button.btn.btn-primary(type='submit' class="regularBtn") Submit
+                .file-field.input-field
+                    .btn(style="padding: 0px 0px 15px 0px;")
+                        label(style="text-align: left;") Add banner
+                        input(name='myImage' type='file')
+                p(style="color:red;") #{errors}
+                button.btn(type='submit' class="regularBtn") Submit
 
-        if biz === undefined
-        else
-            div(class="row getBizCategories")
-                div(style="border-bottom:solid 1px #d2d2d2;")
-                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Categories For This Business
-                div(class="row")
-                    div(class="col-sm-9")
-                        div.form-group
-                            if biz === undefined
-                            else
-                                div(id="getBizId" style="display:none;") #{biz.id}
-                            label(for='prodCatName') Product Category:
-                            input#name.form-control(class="prodCatInput" type='text', placeholder='Add categories' name='prodCatName')
-                    div(class="col-sm-3")
-                        button(class="regularBtn btn" id="addPrdCat" style="margin-top:20px;" onclick="addProdCat();") +
-                div(class="populateBizCategory")
-                    if biz === undefined
-                    else
-                        each category in bizs_categories
-                            .chip.deletePrdCat(id=category._id style="cursor: -webkit-grab;")
-                              | #{category.name}
-                              span(style="padding-left: 10px; font-size: 1.3em;") x
-                        else
-                            p This business has no categories :(
-
-        if biz === undefined
-
-        else
-            div(class="row getBizProducts")
-                div(style="border-bottom:solid 1px #d2d2d2;")
-                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Products For This Business
-                div(class="row productHolder")
-                    each products in biz_products
-                        div(class="col-sm-6 col-md-4")
-                            div(class="card")
-                                div
-                                    img(style="width:100%; height:100px;object-fit: contain;" src=/uploads/+products.product_pic)
-                                div
-                                    p(style="margin: 0px 0px 5px 10px;;") #{products.product_name}
-                                div(class="productHolderBtn" style="text-align:center;")
-                                    a(href='/product/'+products.id+'/update' class="btn regularBtn" style="display: block; width: 100%;") edit
-                    else
-                        |This business has no products
-    div(class="col-sm-12 col-md-3 rightPanel")
-        div(style="width:100%;")
             if biz === undefined
             else
-                div(style="text-align:center;")
-                    div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
-                        div(style="border-bottom:solid 1px #d2d2d2;")
-                            p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create New Product
-                        a(href="/product/create" class="btn regularBtn" style="margin:15px;") create
-                    div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
-                        div(style="border-bottom:solid 1px #d2d2d2;")
-                            p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create New Businesses
-                        a(href="/biz/create" class="btn regularBtn" style="margin:15px;") create
-                    div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
-                        div(style="border-bottom:solid 1px #d2d2d2;")
-                            p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Delete Your Businesses
-                        a(href="/biz/"+biz.id+"/delete" class="btn redBtn" style="margin:15px;") delete
+                div(class="row getBizCategories")
+                    div(style="border-bottom:solid 1px #d2d2d2;")
+                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Categories For This Business
+                    div(style="padding: 10px;")
+                        div(class="row")
+                            div(class="col-sm-9")
+                                div.form-group
+                                    if biz === undefined
+                                    else
+                                        div(id="getBizId" style="display:none;") #{biz.id}
+                                    label(for='prodCatName') Product Category:
+                                    input#name.form-control(class="prodCatInput" type='text', placeholder='Add categories' name='prodCatName')
+                            div(class="col-sm-3")
+                                button(class="regularBtn btn" id="addPrdCat" style="margin-top:28px;" onclick="addProdCat();") +
+                        div(class="populateBizCategory")
+                            if biz === undefined
+                            else
+                                each category in bizs_categories
+                                    .chip(id='categoryChip-'+category._id)
+                                      | #{category.name}
+                                      span(id=category._id style="cursor: pointer;").closebtn.deletePrdCat ×
+                                else
+                                    p This business has no categories :(
 
-  if errors
-    ul
-      for error in errors
-        li!= error.msg
-  script
-      include ../public/javascripts/biz.js
+            if biz === undefined
+
+            else
+                div(class="row getBizProducts")
+                    div(style="border-bottom:solid 1px #d2d2d2;")
+                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Products For This Business
+                    div(class="row productHolder")
+                        each products in biz_products
+                            div(class="col-sm-6 col-md-4")
+                                div(class="card")
+                                    div
+                                        img(style="width:100%; height:100px;object-fit: cover;" src=/uploads/+products.product_pic)
+                                    div
+                                        p(style="margin: 0px 0px 5px 10px;;") #{products.product_name}
+                                    div(class="productHolderBtn" style="text-align:center;")
+                                        a(href='/product/'+products.id+'/update' class="btn regularBtn" style="display: block; width: 100%;") edit
+                        else
+                            |This business has no products
+        div(class="col-sm-12 col-md-3 rightPanel")
+            div(style="width:100%;")
+                if biz === undefined
+                else
+                    div(style="text-align:center;")
+                        div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
+                            div(style="border-bottom:solid 1px #d2d2d2;")
+                                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create New Product
+                            a(href="/product/create" class="btn regularBtn" style="margin:15px;") create
+                        div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
+                            div(style="border-bottom:solid 1px #d2d2d2;")
+                                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create New Businesses
+                            a(href="/biz/create" class="btn regularBtn" style="margin:15px;") create
+                        div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
+                            div(style="border-bottom:solid 1px #d2d2d2;")
+                                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Delete Your Businesses
+                            a(href="/biz/"+biz.id+"/delete" class="btn redBtn" style="margin:15px;") delete
+      .footer
+          .footer-middle
+            .container
+              .col-md-3.footer-middle-in
+                h1(style=' color: white; font-weight: bold; margin-top: -29px;')
+                    span(style=' color: #049bff; font-size: 1.1em;') Biz
+                    | Yangu
+
+                p(style="margin-top: 0px;")
+                  | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
+              .col-md-3.footer-middle-in
+                h6(style="padding-bottom: 20px;") Support
+                ul.in
+                  li
+                    a(href='404.html') About
+                  li
+                    a(href='contact.html') Contact Us
+                  li
+                    a(href='#') Returns
+                  li
+                    a(href='contact.html') Site Map
+                ul.in.in1
+                  li
+                    a(href='#') Order History
+                  li
+                    a(href='wishlist.html') Wish List
+                  li
+                    a(href='login.html') Login
+                .clearfix
+              .col-md-3.footer-middle-in
+                h6(style="padding-bottom: 20px;") Tags
+                ul.tag-in
+                  li
+                    a(href='#') Lorem
+                  li
+                    a(href='#') Sed
+                  li
+                    a(href='#') Ipsum
+                  li
+                    a(href='#') Contrary
+                  li
+                    a(href='#') Chunk
+                  li
+                    a(href='#') Amet
+                  li
+                    a(href='#') Omnis
+              .col-md-3.footer-middle-in
+                h6(style="padding-bottom: 20px;") Newsletter
+                span Sign up for News Letter
+                form
+                  input(type='text', value='Enter your E-mail', onfocus="this.value='';", onblur="if (this.value == '') {this.value ='Enter your E-mail';}")
+                  input(type='submit', value='Subscribe')
+              .clearfix
+          .footer-bottom
+            .container
+              ul.footer-bottom-top
+                li
+                  a(href='#')
+                    img.img-responsive(src='/images/bizYanguImages/f1.png', alt='')
+                li
+                  a(href='#')
+                    img.img-responsive(src='/images/bizYanguImages/f2.png', alt='')
+                li
+                  a(href='#')
+                    img.img-responsive(src='/images/bizYanguImages/f3.png', alt='')
+              p.footer-class
+                | © 2018 BizYangu All Rights Reserved
+              .clearfix
+
+      if errors
+        ul
+          for error in errors
+            li!= error.msg
+      script
+          include ../public/javascripts/biz.js

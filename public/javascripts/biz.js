@@ -1,7 +1,6 @@
 var countries;
 
 $(document).ready(function(e) {
-    $(".modal").modal();
     $('#cartIcon').attr('href', '/shoppingcart/biz=' + $('#activeBiz').attr('bizId'))
 })
 
@@ -145,7 +144,9 @@ function addProdCat() {
                 $.getJSON("/prodCategory?q=" + $("#getBizId").text()).success(function(data) {
                     $(".populateBizCategory").html("");
                     for (var i = 0; i < data.length; i++) {
-                        $(".populateBizCategory").append('<div class="chip" id="' + data[i].id + '" style="cursor: -webkit-grab;">' + data[i].name + '<span style="padding-left: 10px; font-size: 1.3em;">x</span></div>')
+                        var id = data[i]._id;
+                        var name = data[i].name
+                        $(".populateBizCategory").append('<div class="chip" id="categoryChip-' + id + '">' + name + '<span class="closebtn deletePrdCat" id="' + id + '" style="cursor: pointer;">×</span></div>')
                     }
                 });
             },
@@ -159,16 +160,15 @@ function addProdCat() {
     }
 }
 
-$(".deletePrdCat").on("click touchstart", function(e) {
-    $("#prodCatModal").modal("open");
-    var deletePrdCat = $(this).id;
+$(document).on("click touchstart", ".deletePrdCat", function(e) {
+    var deletePrdCat = $(this).attr('id');
 
     $.ajax({
         url: "/prodcategory/" + deletePrdCat + "/delete",
         type: 'POST',
         contentType: "application/json",
         success: function(data) {
-            console.log("successful")
+            $('#categoryChip-' + deletePrdCat).remove();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.log("Status: " + textStatus);
