@@ -10,40 +10,12 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='keywords', content='Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template, \
     Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
-    script(type='application/x-javascript').
-      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
     // theme-style
     link(href='/stylesheets/style4.css', rel='stylesheet', type='text/css', media='all')
 
     // //theme-style
     script(src='/javascripts/jquery.min.js')
-
-    // - start-rate--
-    script(src='/javascripts/jstarbox.js')
-    link(rel='stylesheet', href='/stylesheets/jstarbox.css', type='text/css', media='screen', charset='utf-8')
-    script(type='text/javascript').
-      jQuery(function() {
-        jQuery('.starbox').each(function() {
-            var starbox = jQuery(this);
-            starbox.starbox({
-                average: starbox.attr('data-start-value'),
-                changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
-                ghosting: starbox.hasClass('ghosting'),
-                autoUpdateAverage: starbox.hasClass('autoupdate'),
-                buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
-                stars: starbox.attr('data-star-count') || 5
-            }).bind('starbox-value-changed', function(event, value) {
-                if(starbox.hasClass('random')) {
-                    var val = Math.random();
-                    starbox.next().text(' '+val);
-                    return val;
-                }
-            })
-        });
-      });
-
-    // -//End-rate--
 
   body
     // header
@@ -162,230 +134,36 @@ html
           h3 Trending Items
           label.line
           .mid-popular
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Women
-                      h6
-                        a(href='single.html') Sed ut perspiciati
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc1.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc1.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Women
-                      h6
-                        a(href='single.html') At vero eos
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc2.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc2.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Men
-                      h6
-                        a(href='single.html') Sed ut perspiciati
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc3.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc3.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Women
-                      h6
-                        a(href='single.html') On the other
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .clearfix
-          .mid-popular
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc4.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc4.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Men
-                      h6
-                        a(href='single.html') On the other
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc5.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc5.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Men
-                      h6
-                        a(href='single.html') Sed ut perspiciati
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc6.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc6.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Women
-                      h6
-                        a(href='single.html') At vero eos
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
-            .col-md-3.item-grid.simpleCart_shelfItem
-              .mid-pop
-                .pro-img
-                  img.img-responsive(src='/images/bizYanguImages/pc7.jpg', alt='')
-                  .zoom-icon
-                    a.picture(href='/images/bizYanguImages/pc7.jpg', rel='title')
-                      i.glyphicon.glyphicon-search.icon
-                    a(href='single.html')
-                      i.glyphicon.glyphicon-menu-right.icon
-                .mid-1
-                  .women
-                    .women-top
-                      span Men
-                      h6
-                        a(href='single.html') Sed ut perspiciati
-                    .img.item_add
-                      a(href='#')
-                        img(src='/images/bizYanguImages/ca.png', alt='')
-                    .clearfix
-                  .mid-2
-                    p
-                      label $100.00
-                      em.item_price $70.00
-                    .block
-                      .starbox.small.ghosting
-                    .clearfix
+            for product in biz_products
+                .col-md-3.item-grid.simpleCart_shelfItem
+                  .mid-pop
+                    .pro-img
+                      img.img-responsive(src='/uploads/' + product.product_pic alt='')
+                      .zoom-icon
+                        a.picture(href='/uploads/' + product.product_pic rel='title')
+                          i.glyphicon.glyphicon-search.icon
+                        a(href='/product/' + product._id)
+                          i.glyphicon.glyphicon-menu-right.icon
+                    .mid-1
+                      .women
+                        .women-top
+                          span.bizDetailproductCategory
+                          h6
+                            a(href='/product/' + product._id) #{product.product_name}
+                        .img.item_add
+                            a(href='/product/' + product._id style='background: #049BFF; padding: 8px 20px; position: relative; border-radius: 5px;')
+                                svg#Capa_1(style='enable-background:new 0 0 489 489;width: 20px;position: absolute;left: 11px;', version='1.1', viewBox='0 0 489 489', x='0px', xmlns='http://www.w3.org/2000/svg', y='0px')
+                                  g
+                                    path(d='M440.1,422.7l-28-315.3c-0.6-7-6.5-12.3-13.4-12.3h-57.6C340.3,42.5,297.3,0,244.5,0s-95.8,42.5-96.6,95.1H90.3 c-7,0-12.8,5.3-13.4,12.3l-28,315.3c0,0.4-0.1,0.8-0.1,1.2c0,35.9,32.9,65.1,73.4,65.1h244.6c40.5,0,73.4-29.2,73.4-65.1 C440.2,423.5,440.2,423.1,440.1,422.7z M244.5,27c37.9,0,68.8,30.4,69.6,68.1H174.9C175.7,57.4,206.6,27,244.5,27z M366.8,462 H122.2c-25.4,0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h139.3v41 c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z', fill='#FFFFFF')
+
+                        .clearfix
+                      .mid-2
+                        p
+                          label Ksh #{product.product_price}
+                          em.item_price Ksh #{product.product_price}
+                        .clearfix
             .clearfix
         // //products
-        // brand
-        .brand
-          .col-md-3.brand-grid
-            img.img-responsive(src='/images/bizYanguImages/ic.png', alt='')
-          .col-md-3.brand-grid
-            img.img-responsive(src='/images/bizYanguImages/ic1.png', alt='')
-          .col-md-3.brand-grid
-            img.img-responsive(src='/images/bizYanguImages/ic2.png', alt='')
-          .col-md-3.brand-grid
-            img.img-responsive(src='/images/bizYanguImages/ic3.png', alt='')
-          .clearfix
-
     .footer
         .footer-middle
           .container
@@ -453,8 +231,6 @@ html
               | © 2016 Shopin. All Rights Reserved | Design by
               a(href='http://w3layouts.com/', target='_blank') W3layouts
             .clearfix
-        // jQuery (necessary for Bootstrap's JavaScript plugins)
-        script(src='/javascripts/simpleCart.min.js')
         // slide
         script(src='/javascripts/bootstrap.min.js')
         // light-box-files

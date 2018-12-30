@@ -11,9 +11,9 @@ const {
 } = require('express-validator/filter');
 
 // Display list of all category.
-exports.category_list = function (req, res, next) {
+exports.category_list = function(req, res, next) {
     Category.find()
-        .exec(function (err, list_categories) {
+        .exec(function(err, list_categories) {
             if (err) {
                 return next(err);
             }
@@ -26,21 +26,26 @@ exports.category_list = function (req, res, next) {
 };
 
 // Display detail page for a specific Category.
-exports.category_detail = function (req, res, next) {
+exports.category_detail = function(req, res, next) {
     async.parallel({
-        category: function (callback) {
+        category: function(callback) {
             Category.findById(req.params.id)
                 .exec(callback);
         },
 
-        category_biz: function (callback) {
+        category_biz: function(callback) {
             Biz.find({
                     'category': req.params.id
                 })
                 .exec(callback);
         },
-
-    }, function (err, results) {
+        all_categories: function(callback) {
+            ProductCategory.find({
+                    'biz': req.params.id
+                }, 'name _id')
+                .exec(callback)
+        }
+    }, function(err, results) {
         if (err) {
             return next(err);
         }
@@ -50,17 +55,19 @@ exports.category_detail = function (req, res, next) {
             return next(err);
         }
         // Successful, so render
+        console.log(results.all_categories)
         res.render('category_detail', {
             title: 'Category Detail',
             category: results.category,
-            category_biz: results.category_biz
+            category_biz: results.category_biz,
+            all_categories: results.all_categories
         });
     });
 
 };
 
 // Display Category create form on GET.
-exports.category_create_get = function (req, res) {
+exports.category_create_get = function(req, res) {
     res.render('category_form', {
         title: 'Create Category'
     });
@@ -103,7 +110,7 @@ exports.category_create_post = [
             Category.findOne({
                     'name': req.body.name
                 })
-                .exec(function (err, found_category) {
+                .exec(function(err, found_category) {
                     if (err) {
                         return next(err);
                     }
@@ -113,7 +120,7 @@ exports.category_create_post = [
                         res.redirect(found_category.url);
                     } else {
 
-                        category.save(function (err) {
+                        category.save(function(err) {
                             if (err) {
                                 return next(err);
                             }
@@ -129,21 +136,21 @@ exports.category_create_post = [
 ];
 
 // Display Category delete form on GET.
-exports.category_delete_get = function (req, res) {
+exports.category_delete_get = function(req, res) {
     res.send('NOT IMPLEMENTED: category delete GET');
 };
 
 // Handle Category delete on POST.
-exports.category_delete_post = function (req, res) {
+exports.category_delete_post = function(req, res) {
     res.send('NOT IMPLEMENTED: category delete POST');
 };
 
 // Display Category update form on GET.
-exports.category_update_get = function (req, res) {
+exports.category_update_get = function(req, res) {
     res.send('NOT IMPLEMENTED: category update GET');
 };
 
 // Handle Category update on POST.
-exports.category_update_post = function (req, res) {
+exports.category_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: category update POST');
 };

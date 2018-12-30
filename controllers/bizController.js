@@ -109,6 +109,9 @@ exports.biz_detail = function(req, res, next) {
         } else {
             var activeUser = req.user.id
         }
+        console.log(results.bizs_categories._id)
+        console.log('========================')
+        console.log(results.bizs_products.category)
         res.render('biz_detail', {
             title: 'Business Detail',
             biz: results.biz,

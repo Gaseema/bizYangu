@@ -1,24 +1,125 @@
-extends biz_layout
+doctype html
+html
+  head
+    title
+      | shopName
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet', type='text/css', media='all')
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css', media='all')
+    link(href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet")
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='keywords', content='Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template, \
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
 
-block content
-    div(id="stickyHeader")
-        ul
-            li
-                a(href="/biz/"+biz_id) Home
-                for category in bizs_categories
-                    a(href="/prodcategory/"+ category.id) #{category.name}
-            .right(style="width:300px;" class="prodSearch")
-                div(class="row" style="margin-bottom:0px; background: #ececec;border-bottom-left-radius: 5px; border-top-left-radius: 5px;")
-                    div(class="col s10" style="padding:0px;")
-                        form(autocomplete="off" action="/action_page.php")
-                            .autocomplete(style="width:100%;")
-                                input#myInput(type="text" name="myCountry" placeholder="Search..." onkeyup='checkPrds();' class="bizProdSearch" style="margin-bottom:0px; border-bottom: 0px;")
-                    div(class="col s2" style="padding:0px;")
-                        input(type="submit" style="height: 3rem;width: 40px;" class="right" value="")
-                        svg#Capa_1(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewbox="0 0 485.213 485.213" style="enable-background:new 0 0 485.213 485.213;width: 20px; position: absolute; right: 10;top:18px;" xml:space="preserve")
-                            path(fill="white" d="M471.882,407.567L360.567,296.243c-16.586,25.795-38.536,47.734-64.331,64.321l111.324,111.324    c17.772,17.768,46.587,17.768,64.321,0C489.654,454.149,489.654,425.334,471.882,407.567z")
-                            path(fill="white" d="M363.909,181.955C363.909,81.473,282.44,0,181.956,0C81.474,0,0.001,81.473,0.001,181.955s81.473,181.951,181.955,181.951    C282.44,363.906,363.909,282.437,363.909,181.955z M181.956,318.416c-75.252,0-136.465-61.208-136.465-136.46    c0-75.252,61.213-136.465,136.465-136.465c75.25,0,136.468,61.213,136.468,136.465    C318.424,257.208,257.206,318.416,181.956,318.416z")
-                            path(fill="white" d="M75.817,181.955h30.322c0-41.803,34.014-75.814,75.816-75.814V75.816C123.438,75.816,75.817,123.437,75.817,181.955z")
+    // theme-style
+    link(href='/stylesheets/style4.css', rel='stylesheet', type='text/css', media='all')
+
+    // //theme-style
+    script(src='/javascripts/jquery.min.js')
+
+  body
+    // header
+    .header(style="position: relative;")
+      .container(style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
+        a(href='index.html', style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
+          img(src='/images/gillette-logo.png', alt='', style=' width: 100%; /* width: -webkit-fill-available; */')
+
+      .header-top
+        .container
+          .col-sm-5.col-md-offset-2.header-login
+            ul
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='checkout.html') Checkout
+          .col-sm-5.header-social
+            ul
+              li
+                a(href='#')
+                  i
+              li
+                a(href='#')
+                  i.ic1
+              li
+                a(href='#')
+                  i.ic2
+              li
+                a(href='#')
+                  i.ic3
+              li
+                a(href='#')
+                  i.ic4
+          .clearfix
+      .container
+        .head-top
+          .col-sm-8.col-md-offset-2.h_menu4
+            nav.navbar.nav_bottom(role='navigation')
+              // Brand and toggle get grouped for better mobile display
+              .navbar-header.nav_2
+                button.navbar-toggle.collapsed.navbar-toggle1(type='button', data-toggle='collapse', data-target='#bs-megadropdown-tabs')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              // Collect the nav links, forms, and other content for toggling
+              #bs-megadropdown-tabs.collapse.navbar-collapse
+                ul.nav.navbar-nav.nav_1
+                  li
+                    a.color(href=biz_id) Home
+                  for category in category_biz
+                      li
+                        a.color(href="/prodcategory/"+ category.id) #{category.name}
+              // /.navbar-collapse
+          .col-sm-2.search-right
+            ul.heart
+              li
+                a(href='wishlist.html')
+                  span.glyphicon.glyphicon-heart(aria-hidden='true')
+              li
+                a.play-icon.popup-with-zoom-anim(href='#small-dialog')
+                  i.glyphicon.glyphicon-search
+            .cart.box_1
+              a(href='checkout.html')
+                h3
+                  .total
+                    span.simpleCart_total
+                  img(src='/images/bizYanguImages/cart.png', alt='')
+              p
+                a.simpleCart_empty(href='javascript:;') Empty Cart
+            .clearfix
+            // -
+            // -pop-up-box--
+            link(href='/stylesheets/popuo-box.css', rel='stylesheet', type='text/css', media='all')
+            script(src='/javascripts/jquery.magnific-popup.js', type='text/javascript')
+            // -//pop-up-box--
+            #small-dialog.mfp-hide
+              .search-top
+                .login-search
+                  input(type='submit', value='')
+                  input(type='text', value='Search..', onfocus="this.value = '';", onblur="if (this.value == '') {this.value = 'Search..';}")
+                p Shopin
+            script.
+              $(document).ready(function() {
+              $('.popup-with-zoom-anim').magnificPopup({
+              type: 'inline',
+              fixedContentPos: false,
+              fixedBgPos: true,
+              overflowY: 'auto',
+              closeBtnInside: true,
+              preloader: false,
+              midClick: true,
+              removalDelay: 300,
+              mainClass: 'my-mfp-zoom-in'
+              });
+              });
+            // -
+          .clearfix
+    // banner
+    if active_user == undefined
+    else
+        p#active-user(style="display:none;") #{active_user}
     div.row(style="width:88%; padding-top: 30px; text-align:center;")
         each product in prodCategory_products
             div(class="col s6 m3 l5ths" style="padding: 0px 5px 10px 5px;")

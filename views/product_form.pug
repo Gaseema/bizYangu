@@ -30,12 +30,15 @@ html(lang='en')
         if product === undefined
             h1
                 span#bizid(class="titleBlock") Create new product
+            a(style=' float: right; color: white; text-decoration: none; /* cursor: alias; */ ', href="/biz/" + bizs[0]._id) - Visit Website
         else
             h1
                 span#bizid(class="titleBlock") Manage #{product.product_name}
+            a(style=' float: right; color: white; text-decoration: none; /* cursor: alias; */ ', href="/biz/" + bizs[0]._id) - Visit Website
 
       div(class="row" style="margin-top:20px;width: 88%; margin-left: auto; margin-right: auto; margin-bottom: 70px;")
-        div(class="col-sm-12 col-md-9")
+        div(class="col-sm-12 col-md-3")
+        div(class="col-sm-12 col-md-6")
             div(class="prodUpdateForm")
                 div(style="border-bottom:solid 1px #d2d2d2;")
                     if product === undefined
