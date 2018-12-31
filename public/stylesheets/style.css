@@ -87,6 +87,7 @@ label {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 90%;
 }
 
 .whitebutton {
@@ -278,18 +279,20 @@ label {
 }
 
 .redBtn:hover {
-    background: red;
+    background: #ea0303;
+    color: white;
 }
 
 .regularBtn {
-    background: #FF8535;
+    background: #049BFF;
     transition: 0.5s;
     color: white;
     text-transform: uppercase;
 }
 
 .regularBtn:hover {
-    background: #FF8535;
+    background: #0782d4;
+    color: white;
 }
 
 .whiteBtn {
@@ -2108,6 +2111,7 @@ a.at-in {
     color: #fff;
     font-family: Varela Round', sans-serif;;
 text-transform: uppercase;
+;;;;;;;;;;padding-bottom: 25px;;;;;;;;;;;
 }
 
 .footer-middle-in p {
