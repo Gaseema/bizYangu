@@ -26,9 +26,10 @@ label {
     align-items: center;
 }
 
-.dropdown-menu #dropdownMenuButton{
+.dropdown-menu #dropdownMenuButton {
     display: none;
 }
+
 /********** Chip Start **********/
 .chip {
     display: inline-block;
@@ -264,7 +265,8 @@ label {
 .bizYanguNav {
     background: white;
 }
-.bizYanguNav li{
+
+.bizYanguNav li {
     display: inline-block;
 }
 
@@ -410,6 +412,7 @@ label {
     display: inline-block;
     margin-right: 15px;
 }
+
 .profileIconSettings li:last-child {
     margin-right: 0px;
 }
@@ -648,25 +651,17 @@ label {
     border-radius: 5px;
 }
 
-@font-face {
-    font-family: 'Oxygen-Bold';
-    src: url(../fonts/Oxygen-Bold.ttf) format('truetype');
+.keyAspects {
+    text-align: left;
 }
 
-@font-face {
-    font-family: 'Ubuntu-Regular';
-    src: url(../fonts/Ubuntu-Regular.ttf) format('truetype');
+.keyAspects li {
+    list-style: none;
+    padding-bottom: 10px;
 }
 
-@font-face {
-    src: url(../fonts/Ubuntu-Bold.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'Oxygen-Regular';
-    src: url(../fonts/Oxygen-Regular.ttf) format('truetype');
-}
-
+/*************************************************************************
+*************************************************************************/
 html, body {
     background: #fff;
     font-size: 100%;

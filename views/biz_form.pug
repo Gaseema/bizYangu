@@ -30,6 +30,8 @@ html(lang='en')
                       path(style='fill:#556080;', d='M26.953,0.004C12.32-0.246,0.254,11.414,0.004,26.047C-0.138,34.344,3.56,41.801,9.448,46.76 c0.385-0.336,0.798-0.644,1.257-0.894l7.907-4.313c1.037-0.566,1.683-1.653,1.683-2.835v-3.24c0,0-2.321-2.776-3.206-6.633 c-0.734-0.475-1.226-1.296-1.226-2.231v-3.546c0-0.78,0.347-1.477,0.886-1.965v-5.126c0,0-1.053-7.977,9.75-7.977 s9.75,7.977,9.75,7.977v5.126c0.54,0.488,0.886,1.185,0.886,1.965v3.546c0,1.192-0.8,2.195-1.886,2.53 c-0.605,1.881-1.478,3.674-2.632,5.304c-0.291,0.411-0.563,0.759-0.801,1.03V38.8c0,1.223,0.691,2.342,1.785,2.888l8.467,4.233 c0.508,0.254,0.967,0.575,1.39,0.932c5.71-4.762,9.399-11.882,9.536-19.9C53.246,12.32,41.587,0.254,26.953,0.004z')
                       | Dropdown button
                     .dropdown-menu(aria-labelledby='dropdownMenuButton' style="line-height: 2;")
+                      a.dropdown-item(href='/faq') FAQ
+                      a.dropdown-item(href='/help') Help
                       a.dropdown-item(href='/logout') Log Out
 
       div(class="updateBizHero")
@@ -42,14 +44,6 @@ html(lang='en')
             a(style=' float: right; color: white; text-decoration: none; /* cursor: alias; */ ', href="/biz/" + biz._id) - Visit Website
 
       div(class="row" style="padding: 50px 0px; width: 88%; margin-left: auto; margin-right: auto;")
-        div(class="col-sm-12 col-md-2 leftPanel")
-            div(class="adverts" style="background:white;width:100%;")
-                div(style="border-bottom:solid 1px #d2d2d2;")
-                    p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Settings
-                div()
-                    ul(style="padding-left: 10px; font-size: 0.9em;")
-                        li Terms & Security
-                        li Help
         div(class="col-sm-12 col-md-8 middlePanel")
             div(class="row updateBizForm")
               div(style="border-bottom:solid 1px #d2d2d2;")
@@ -60,7 +54,7 @@ html(lang='en')
               form(method='POST', action='',  enctype="multipart/form-data")
                 div.form-group
                   label(for='biz_name') Business Name:
-                  input#biz_name.form-control(autocomplete='off' type='text', placeholder='Business name (Duka) last' name='biz_name' required='true' value=(undefined===biz ? '' : biz.biz_name))
+                  input#biz_name.form-control(autocomplete='off' type='text', placeholder='Enter business name' name='biz_name' required='true' value=(undefined===biz ? '' : biz.biz_name))
                 div.form-group
                   label(for='name' style="width: 100%") Business Category:
                   select#biz.form-control(type='select', placeholder='Select category' name='name' required='true' )
@@ -81,7 +75,7 @@ html(lang='en')
                 .file-field.input-field
                     .btn(style="padding: 0px 0px 15px 0px;")
                         label(style="text-align: left;") Add banner
-                        input(name='myImage' type='file')
+                        input(name='myImage' type='file' required="true")
                 p(style="color:red;") #{errors}
                 button.btn(type='submit' class="regularBtn") Submit
 
@@ -117,7 +111,7 @@ html(lang='en')
                 div(class="row getBizProducts")
                     div(style="border-bottom:solid 1px #d2d2d2;")
                         p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Products For This Business
-                    div(class="row productHolder")
+                    div(class="productHolder col-sm")
                         each products in biz_products
                             div(class="col-sm-6 col-md-4")
                                 div(class="card")
@@ -129,9 +123,19 @@ html(lang='en')
                                         a(href='/product/'+products.id+'/update' class="btn regularBtn" style="display: block; width: 100%;") edit
                         else
                             |This business has no products
-        div(class="col-sm-12 col-md-2 rightPanel")
+        div(class="col-sm-12 col-md-4 rightPanel")
             div(style="width:100%;")
                 if biz === undefined
+                    div(style="-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); background: white; text-align: center; text-decoration: none; padding: 10px 20px; border-radius: 3px;")
+                        a.brand-logo.left(href='#', style='color: #4a4a4a;font-size: 3em;')
+                          span(style='color:#049BFF;font-weight:bold;') Biz
+                          | Yangu
+                        ul.keyAspects
+                            li - A reliable source of essential business metrics presented in real-time.
+                            li - Personalize key performance data according to item type, vendor origin, seasonal offers and more.
+                            li - Valuable data from across multi-channel sales outlets can be accumulated into one easy to access display.
+                            li - Data provided by your reliable source of business intelligence can be used to increase your customer base and broaden your service area.
+
                 else
                     div(style="text-align:center;")
                         div(style="margin-bottom: 10px; background: white; border-radius: 3px;")
