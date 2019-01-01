@@ -21,6 +21,11 @@ label {
     padding-bottom: 10px;
 }
 
+.verticallyAlign {
+    display: flex;
+    align-items: center;
+}
+
 /********** Chip Start **********/
 .chip {
     display: inline-block;
@@ -363,6 +368,82 @@ label {
     text-align: center;
 }
 
+.profileheroSection {
+    position: relative;
+    margin-top: 55px;
+    padding: 50px 8%;
+    background: linear-gradient(180deg, #00a0ee, #5900ffd1 50%), url(../images/bizYanguImages/angle-bg.png) no-repeat scroll center bottom -230px / 100% auto;
+}
+
+.profileheroSection img {
+    width: 80px;
+}
+
+.profileDetails {
+    padding-left: 20px;
+}
+
+.profileDetails p {
+    color: white;
+}
+
+.profileImage {
+    float: left;
+    border: solid white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profileIconSettings {
+    position: absolute;
+    right: 8%;
+    top: 15px;
+}
+
+.profileIconSettings li {
+    display: inline-block;
+    margin-right: 15px;
+}
+.profileIconSettings li:last-child {
+    margin-right: 0px;
+}
+
+.businessConatainer {
+    background: white;
+    margin: 50px 0px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.businessList {
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.businessList img {
+    height: 10em;
+    width: 100%;
+    background: #363636;
+    margin: 0px;
+    object-fit: cover;
+}
+
+.businessList p {
+    margin: 0px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    padding-left: 15px;
+    background: linear-gradient(#00000000, #000000b5);
+    width: 100%;
+    line-height: 2.5;
+    font-size: 1.2em;
+}
+
 /*********************************************
 **********************************************
 **********************************************
@@ -421,7 +502,8 @@ label {
     .companyLog {
         display: none;
     }
-    .header-top{
+
+    .header-top {
         height: 45px;
     }
 }
@@ -2111,7 +2193,27 @@ a.at-in {
     color: #fff;
     font-family: Varela Round', sans-serif;;
 text-transform: uppercase;
-;;;;;;;;;;padding-bottom: 25px;;;;;;;;;;;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    padding-bottom: 25px;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
+    ;
 }
 
 .footer-middle-in p {

@@ -16,39 +16,48 @@ block content
               path(style='fill:#E7ECED;', d='M18.613,41.552l-7.907,4.313c-0.464,0.253-0.881,0.564-1.269,0.903C14.047,50.655,19.998,53,26.5,53  c6.454,0,12.367-2.31,16.964-6.144c-0.424-0.358-0.884-0.68-1.394-0.934l-8.467-4.233c-1.094-0.547-1.785-1.665-1.785-2.888v-3.322  c0.238-0.271,0.51-0.619,0.801-1.03c1.154-1.63,2.027-3.423,2.632-5.304c1.086-0.335,1.886-1.338,1.886-2.53v-3.546  c0-0.78-0.347-1.477-0.886-1.965v-5.126c0,0,1.053-7.977-9.75-7.977s-9.75,7.977-9.75,7.977v5.126  c-0.54,0.488-0.886,1.185-0.886,1.965v3.546c0,0.934,0.491,1.756,1.226,2.231c0.886,3.857,3.206,6.633,3.206,6.633v3.24  C20.296,39.899,19.65,40.986,18.613,41.552z')
               path(style='fill:#556080;', d='M26.953,0.004C12.32-0.246,0.254,11.414,0.004,26.047C-0.138,34.344,3.56,41.801,9.448,46.76   c0.385-0.336,0.798-0.644,1.257-0.894l7.907-4.313c1.037-0.566,1.683-1.653,1.683-2.835v-3.24c0,0-2.321-2.776-3.206-6.633   c-0.734-0.475-1.226-1.296-1.226-2.231v-3.546c0-0.78,0.347-1.477,0.886-1.965v-5.126c0,0-1.053-7.977,9.75-7.977   s9.75,7.977,9.75,7.977v5.126c0.54,0.488,0.886,1.185,0.886,1.965v3.546c0,1.192-0.8,2.195-1.886,2.53   c-0.605,1.881-1.478,3.674-2.632,5.304c-0.291,0.411-0.563,0.759-0.801,1.03V38.8c0,1.223,0.691,2.342,1.785,2.888l8.467,4.233   c0.508,0.254,0.967,0.575,1.39,0.932c5.71-4.762,9.399-11.882,9.536-19.9C53.246,12.32,41.587,0.254,26.953,0.004z')
 
-    div(class="row" style="margin-top: 100px; width: 86%; margin-left: auto; margin-right: auto; min-height: 50vh;")
-      div(class="col-sm-12 col-md-3")
-          div(style="background:white;")
-            div(style="width:100%; height:80px;background:#363636;")
-            div
-                div(class="row")
-                    div(class="col-sm-12 col-md-4")
-                        img(style="display: block; margin-left: auto; margin-right: auto; border-radius: 50%; border: solid white 3px; margin-top: -25px; width: 80%;" src=userPhoto)
-                    div(class="col-sm-12 col-md-8")
-                        p(style="margin: 0px;") #{userName}
-                        p(style="margin: 0px;") #{userEmail}
-                div(class="row")
-      div(class="col-sm-12 col-md-9")
-        div(style="background:white;")
-            div(style="background:white;")
-                div(style="border-bottom:solid 1px #d2d2d2;")
+    .row.profileheroSection
+        .profileIconSettings
+            ul
+                li(style="width: 25px;")
+                    a(href="#")
+                        svg#Capa_1(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', viewBox='0 0 510 510', style='enable-background:new 0 0 510 510; width: 25px; position: absolute; top: 2px;', xml:space='preserve')
+                            path(d='M459,0H51C22.95,0,0,22.95,0,51v459l102-102h357c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z', fill='#FFFFFF')
+                li
+                    a(href="#")
+                        svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 268.765 268.765" style="enable-background:new 0 0 268.765 268.765; width: 25px;" xml:space="preserve")
+                            path(style="fill-rule:evenodd;clip-rule:evenodd;" d="M267.92,119.461c-0.425-3.778-4.83-6.617-8.639-6.617    c-12.315,0-23.243-7.231-27.826-18.414c-4.682-11.454-1.663-24.812,7.515-33.231c2.889-2.641,3.24-7.062,0.817-10.133    c-6.303-8.004-13.467-15.234-21.289-21.5c-3.063-2.458-7.557-2.116-10.213,0.825c-8.01,8.871-22.398,12.168-33.516,7.529    c-11.57-4.867-18.866-16.591-18.152-29.176c0.235-3.953-2.654-7.39-6.595-7.849c-10.038-1.161-20.164-1.197-30.232-0.08    c-3.896,0.43-6.785,3.786-6.654,7.689c0.438,12.461-6.946,23.98-18.401,28.672c-10.985,4.487-25.272,1.218-33.266-7.574    c-2.642-2.896-7.063-3.252-10.141-0.853c-8.054,6.319-15.379,13.555-21.74,21.493c-2.481,3.086-2.116,7.559,0.802,10.214    c9.353,8.47,12.373,21.944,7.514,33.53c-4.639,11.046-16.109,18.165-29.24,18.165c-4.261-0.137-7.296,2.723-7.762,6.597    c-1.182,10.096-1.196,20.383-0.058,30.561c0.422,3.794,4.961,6.608,8.812,6.608c11.702-0.299,22.937,6.946,27.65,18.415    c4.698,11.454,1.678,24.804-7.514,33.23c-2.875,2.641-3.24,7.055-0.817,10.126c6.244,7.953,13.409,15.19,21.259,21.508    c3.079,2.481,7.559,2.131,10.228-0.81c8.04-8.893,22.427-12.184,33.501-7.536c11.599,4.852,18.895,16.575,18.181,29.167    c-0.233,3.955,2.67,7.398,6.595,7.85c5.135,0.599,10.301,0.898,15.481,0.898c4.917,0,9.835-0.27,14.752-0.817    c3.897-0.43,6.784-3.786,6.653-7.696c-0.451-12.454,6.946-23.973,18.386-28.657c11.059-4.517,25.286-1.211,33.281,7.572    c2.657,2.89,7.047,3.239,10.142,0.848c8.039-6.304,15.349-13.534,21.74-21.494c2.48-3.079,2.13-7.559-0.803-10.213    c-9.353-8.47-12.388-21.946-7.529-33.524c4.568-10.899,15.612-18.217,27.491-18.217l1.662,0.043    c3.853,0.313,7.398-2.655,7.865-6.588C269.044,139.917,269.058,129.639,267.92,119.461z M134.595,179.491    c-24.718,0-44.824-20.106-44.824-44.824c0-24.717,20.106-44.824,44.824-44.824c24.717,0,44.823,20.107,44.823,44.824    C179.418,159.385,159.312,179.491,134.595,179.491z" fill="#FFFFFF")
+
+
+
+        div(class="col-sm-12 col-md-5")
+            .verticallyAlign
+                .profileImage
+                    img(src=userPhoto)
+                .profileDetails
+                    p(style="margin: 0px;") #{userName}
+                    p(style="margin: 0px;") #{userEmail}
+            .profileInfo
+        div(class="col-sm-12 col-md-7")
+    div(class="row" style="background: #F5F5F5;")
+        div(class="col-sm-12 col-md-2")
+        div(class="col-sm-12 col-md-8")
+            .businessConatainer.row
+                .col-sm-12.verticallyAlign(style='border-bottom: solid #f3f3f3 1px; padding: 5px 0px;')
                     if biz_list.length
-                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Manage Your Businesses
+                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em; float: left;") Manage Your Businesses
+                        span(style='position: absolute; right: 0px; line-height: 1.5; background: #049BFF; margin-right: 10px; padding: 0px 15px; border-radius: 3px; color: white;') #{biz_list.length}
                     else
-                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Create Business
-            div(class="settingsLstBiz" style="padding:10px;")
-                div(class="row")
+                        p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em; float: left;") Create Business
+                .col-sm-12(style='padding: 10px 0px;')
                     if biz_list.length
                         each biz in biz_list
-                            div(class="col-sm-6 col-md-4")
+                            div(class="col-sm-6 col-md-4 businessList")
                                 a(href=biz.url+"/update")
-                                    img(src="/uploads/" + biz.biz_banner style="width:100%; height:100px; background:#363636; margin:0px; object-fit: cover;")
+                                    img(src="/uploads/" + biz.biz_banner)
                                     p(style="margin:0px;") #{biz.biz_name}
                     else
                         div(class="createBiz")
                             p We want your experience to be perfect for your needs. Get started by creating a business.
                             a(href="/biz/create" class="btn regularBtn") create
-      //div(class="col-sm-12 col-md-3")
-        div(style="background:white;")
-            div(class="postYourAd" style="border-bottom:solid 1px black;")
-                p(style="margin: 0px; padding: 2px 10px; font-size: 1.2em;") Post Your Advert
+        div(class="col-sm-12 col-md-2")
