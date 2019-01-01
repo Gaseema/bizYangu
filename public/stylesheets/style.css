@@ -261,6 +261,9 @@ label {
 .bizYanguNav {
     background: white;
 }
+.bizYanguNav li{
+    display: inline-block;
+}
 
 .bizYanguNav a {
     text-decoration: none;
