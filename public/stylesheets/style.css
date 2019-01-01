@@ -26,6 +26,9 @@ label {
     align-items: center;
 }
 
+.dropdown-menu #dropdownMenuButton{
+    display: none;
+}
 /********** Chip Start **********/
 .chip {
     display: inline-block;
@@ -399,7 +402,7 @@ label {
 
 .profileIconSettings {
     position: absolute;
-    right: 8%;
+    right: 9.8%;
     top: 15px;
 }
 
@@ -543,7 +546,7 @@ label {
 **********************************************
 *********************************************/
 .updateBizHero {
-    background: linear-gradient(180deg, #545454, #2f2f2ff5 50%), url(../images/bizYanguImages/angle-bg.png) no-repeat scroll center bottom -120px / 100% auto;
+    background: linear-gradient(180deg, #00a0ee, #5900ffd1 50%), url(../images/bizYanguImages/angle-bg.png) no-repeat scroll center bottom -230px / 100% auto;
     margin-top: 0px;
     padding: 3%;
 }

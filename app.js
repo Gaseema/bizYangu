@@ -88,7 +88,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexapp);
 app.use('/users', usersapp);
-app.use('/catalog', catalog); // Add catalog routes to middleware chain.
+app.use('/', catalog); // Add catalog routes to middleware chain.
 
 //Passport
 auth(passport);
