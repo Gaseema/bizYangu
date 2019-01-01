@@ -547,7 +547,7 @@ label {
 *********************************************/
 .updateBizHero {
     background: linear-gradient(180deg, #00a0ee, #5900ffd1 50%), url(../images/bizYanguImages/angle-bg.png) no-repeat scroll center bottom -230px / 100% auto;
-    margin-top: 0px;
+    margin-top: 55px;
     padding: 3%;
 }
 
