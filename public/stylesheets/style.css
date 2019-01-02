@@ -245,6 +245,9 @@ label {
     right: 6%;
     top: 3%;
 }
+.right #dropdownMenuButton{
+    padding: 0 !important;
+}
 
 .homePageNav ul li {
     margin: 0px 5px;
@@ -384,7 +387,7 @@ label {
 }
 
 .profileheroSection img {
-    width: 80px;
+    width: 55px;
 }
 
 .profileDetails {
@@ -404,7 +407,7 @@ label {
 
 .profileIconSettings {
     position: absolute;
-    right: 9.8%;
+    right: 8%;
     top: 15px;
 }
 
