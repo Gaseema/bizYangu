@@ -30,9 +30,9 @@ module.exports = function (passport) {
             } else {
                 //Save User
                 new User({
-                    userName: req.user.profile.displayName,
-                    googleId: req.user.profile.id,
-                    email: req.user.profile.emails[0].value
+                    userName: profile.displayName,
+                    googleId: profile.id,
+                    email: profile.emails[0].value
                 }).save().then((newUser) => {
                     done(null, {
                         currentUser: currentUser,
