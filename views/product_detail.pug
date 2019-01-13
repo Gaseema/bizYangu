@@ -74,7 +74,7 @@ html
                     a.color(href="/biz/" + biz_id) Home
                   for category in bizs_categories
                       li
-                        a.color(href="/prodcategory/"+ category.id) #{category.name}
+                        a.color(href="/biz/" + active_biz._id  + "/prodcategory/"+ category.id) #{category.name}
               // /.navbar-collapse
           .col-sm-2.search-right
             ul.heart
@@ -205,7 +205,7 @@ html
             ul
                 for category in bizs_categories
                     li
-                        a(href='#' style="color: black;") - #{category.name}
+                        a(href="/biz/" + active_biz._id  + "/prodcategory/"+ category.id style="color: black;") - #{category.name}
       // brand
       .container
         .brand
@@ -226,7 +226,7 @@ html
           .container
             .col-md-3.footer-middle-in
               a(href='index.html')
-                img(src='images/log.png', alt='')
+                img(style="width: 100px; display: block; margin-left: auto; margin-right: auto;" src='/uploads/' + active_biz.biz_logo, alt='')
               p
                 | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
             .col-md-3.footer-middle-in
