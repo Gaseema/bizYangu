@@ -10,8 +10,6 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='keywords', content='Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template, \
     Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
-    script(type='application/x-javascript').
-      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
     // theme-style
     link(href='/stylesheets/style4.css', rel='stylesheet', type='text/css', media='all')
@@ -39,7 +37,7 @@ html
                     a(href='/auth/google') Register
                 else
                     li
-                        a(href='/logout') Logout
+                        a#loggedIn(href='/logout') Logout
           .col-sm-5.header-social
             ul
               li
@@ -134,7 +132,7 @@ html
                     img.img-responsive(src='/uploads/' + product.product_pic , data-imagezoom='true')
           .col-md-7.single-top-in
             .span_2_of_a1.simpleCart_shelfItem
-              h3 #{product.product_name}
+              h3.purchaseItemName #{product.product_name}
               p.in-para  #{product.summary}
               .price_single
                 span.reducedfrom.item_price Ksh #{product.product_price}
@@ -157,7 +155,7 @@ html
                 .quantity-select
                   .entry.value-minus  
                   .entry.value
-                    span 1
+                    span.purchaseItemNo 1
                   .entry.value-plus.active  
               // quantity
               script.
@@ -170,7 +168,7 @@ html
                 if(newVal>=1) divUpd.text(newVal);
                 });
               // quantity
-              button.add-to.item_add.makeOrder(href='#' style="background: #049BFF; color: white; padding: 10px 20px; border-radius: 3px; text-transform: uppercase; font-size: 0.9em;") Add to cart
+              button.add-to.item_add.makeOrder(href='#' style="background: #049BFF; color: white; padding: 10px 20px; border-radius: 3px; text-transform: uppercase; font-size: 0.9em;") buy
               .clearfix
           .clearfix
           //
@@ -222,7 +220,46 @@ html
           .clearfix
       // //brand
       // //content
-      // //footer
+
+      // Login Modal
+      #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header(style="position: relative;")
+                h5#exampleModalCenterTitle.modal-title(style="font-weight: bold; font-size: 1.2em;") Sign In / Sign Up
+                button.close(type='button', data-dismiss='modal', aria-label='Close' style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%);")
+                  span(aria-hidden='true') ×
+              .modal-body(style="text-align: center; padding: 30px 15px;")
+                p(style="padding-bottom: 25px;") Please sign in to complete your order
+                a(href='/auth/google')
+                    button(style="background: #049BFF; color: white; border: none; border-radius: 3px; padding: 10px 30px; text-transform: uppercase;") Sign in
+
+      // Confirmation Modal
+      #confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header(style="position: relative;")
+                h5#exampleModalCenterTitle.modal-title(style="font-weight: bold; font-size: 1.2em;") Confirm Purchase
+                button.close(type='button', data-dismiss='modal', aria-label='Close' style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%);")
+                  span(aria-hidden='true') ×
+              .modal-body(style="text-align: center; padding: 30px 15px;")
+                table.table.table-striped.purchaseList(style="padding-bottom: 25px;")
+                  thead
+                    tr(style="background: #e2e2c5;")
+                      th(scope='col') #
+                      th(scope='col') Item
+                      th(scope='col') Qty
+                      th(scope='col') Price
+                  tbody(style="text-align: left;")
+                    tr
+                      th(scope='row') 1
+                      td.purchaseListItem
+                      td.purchaseListQty
+                      td.purchaseListPrice
+                a(href='/auth/google')
+                    button(style="background: #049BFF; color: white; border: none; border-radius: 3px; padding: 10px 30px; text-transform: uppercase; margin-top: 20px;") checkout
+
+      //footer
       .footer
         .footer-middle
           .container

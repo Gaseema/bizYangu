@@ -473,6 +473,10 @@ label {
     list-style: none;
     padding-left: 10px;
 }
+table th{
+    font-size: 1em;
+    /* background: #e2e2c5; */
+}
 
 /*********************************************
 **********************************************
