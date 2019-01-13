@@ -74,7 +74,11 @@ html(lang='en')
 
                 .file-field.input-field
                     .btn(style="padding: 0px 0px 15px 0px;")
-                        label(style="text-align: left;") Add banner
+                        label(style="text-align: left;") Add business logo
+                        input(name='myImage' type='file' required="true")
+                .file-field.input-field
+                    .btn(style="padding: 0px 0px 15px 0px;")
+                        label(style="text-align: left;") Add business banner
                         input(name='myImage' type='file' required="true")
                 p(style="color:red;") #{errors}
                 button.btn(type='submit' class="regularBtn") Submit

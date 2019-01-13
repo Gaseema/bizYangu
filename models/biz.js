@@ -25,9 +25,11 @@ var BizSchema = new Schema({
         type: String,
         required: true
     },
+    biz_logo: {
+        type: String
+    },
     biz_banner: {
-        type: String,
-        required: true
+        type: String
     }
 });
 

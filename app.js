@@ -24,6 +24,7 @@ var biz_controller = require('./controllers/bizController');
 var category_controller = require('./controllers/categoryController');
 var prodcategory_controller = require('./controllers/productCategoryController');
 var shoppingcart_controller = require('./controllers/shoppingCartController');
+var orders_controller = require('./controllers/ordersController');
 
 var indexapp = require('./routes/index');
 var usersapp = require('./routes/users');
@@ -39,14 +40,8 @@ const storage = multer.diskStorage({
 
 // Init Upload
 exports.upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1000000
-    },
-    fileFilter: function(req, file, cb) {
-        checkFileType(file, cb);
-    }
-}).single('myImage');
+    storage: storage
+}).array('myImage', 2);
 
 // Check File Type
 function checkFileType(file, cb) {
@@ -188,7 +183,7 @@ app.get('/product/:id/update', product_controller.product_update_get);
 app.post('/product/:id/update', product_controller.product_update_post);
 
 // GET request for one product.
-app.get('/product/:id', product_controller.product_detail);
+app.get('/biz/bizId=:bizId/product/prodId=:id', product_controller.product_detail);
 
 // GET request for list of all product items.
 app.get('/products', product_controller.product_list);
@@ -296,10 +291,16 @@ app.post('/shoppingcart/:id/update', shoppingcart_controller.shoppingcart_update
 // app.get('/shoppingcart/:id', shoppingcart_controller.shoppingcart_detail);
 
 // GET request for list of all shopping cart items across all businesses.
-app.get('/shoppingcart', shoppingcart_controller.shoppingcart_list)
+app.get('/shoppingcart', shoppingcart_controller.shoppingcart_list);
 
 // GET request for list shopping cart for a specific business.
-app.get('/shoppingcart/biz=:bizId', shoppingcart_controller.bizShoppingcart_list)
+app.get('/shoppingcart/biz=:bizId', shoppingcart_controller.bizShoppingcart_list);
+
+/// Orders ROUTES ///
+// Get request for orders
+//app.get('/shoppingcart/create', orders_controller.order_create_get);
+// POST request for orders.
+//app.post('/shoppingcart/create', orders_controller.order_create_post);
 
 app.get('/logout', (req, res) => {
     req.logout();

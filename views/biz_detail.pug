@@ -20,10 +20,8 @@ html
   body
     // header
     .header(style="position: relative;")
-      .container(style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
-        a(href=biz_id, style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
-          img(src='/images/gillette-logo.png', alt='', style=' width: 100%; /* width: -webkit-fill-available; */')
-
+      a.container(href=biz_id style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
+        div(style='background: url(' + biz_logo + '); background-size: contain; background-position: 50% 50%; background-repeat: no-repeat; height: 100%; width: 100%;')
       .header-top
         .container
           .col-sm-5.col-md-offset-2.header-login
@@ -142,16 +140,16 @@ html
                       .zoom-icon
                         a.picture(href='/uploads/' + product.product_pic rel='title')
                           i.glyphicon.glyphicon-search.icon
-                        a(href='/product/' + product._id)
+                        a(href='/biz/bizId=' + biz_id + '/product/prodId=' + product._id)
                           i.glyphicon.glyphicon-menu-right.icon
                     .mid-1
                       .women
                         .women-top
                           span.bizDetailproductCategory
                           h6
-                            a(href='/product/' + product._id) #{product.product_name}
+                            a(href='/biz/bizId=' + biz_id + '/product/prodId=' + product._id) #{product.product_name}
                         .img.item_add
-                            a(href='/product/' + product._id style='background: #049BFF; padding: 8px 20px; position: relative; border-radius: 5px;')
+                            a(href='/biz/bizId=' + biz_id + '/product/prodId=' + product._id style='background: #049BFF; padding: 8px 20px; position: relative; border-radius: 5px;')
                                 svg#Capa_1(style='enable-background:new 0 0 489 489;width: 20px;position: absolute;left: 11px;', version='1.1', viewBox='0 0 489 489', x='0px', xmlns='http://www.w3.org/2000/svg', y='0px')
                                   g
                                     path(d='M440.1,422.7l-28-315.3c-0.6-7-6.5-12.3-13.4-12.3h-57.6C340.3,42.5,297.3,0,244.5,0s-95.8,42.5-96.6,95.1H90.3 c-7,0-12.8,5.3-13.4,12.3l-28,315.3c0,0.4-0.1,0.8-0.1,1.2c0,35.9,32.9,65.1,73.4,65.1h244.6c40.5,0,73.4-29.2,73.4-65.1 C440.2,423.5,440.2,423.1,440.1,422.7z M244.5,27c37.9,0,68.8,30.4,69.6,68.1H174.9C175.7,57.4,206.6,27,244.5,27z M366.8,462 H122.2c-25.4,0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h139.3v41 c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z', fill='#FFFFFF')
@@ -169,7 +167,7 @@ html
           .container
             .col-md-3.footer-middle-in
               a(href=biz_id)
-                img(src='/images/bizYanguImages/log.png', alt='')
+                img(src=biz_logo, alt='' style="width: 100px; display: block; margin-left: auto; margin-right: auto;")
               p
                 | Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.
             .col-md-3.footer-middle-in

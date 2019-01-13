@@ -168,7 +168,7 @@ html
                 if(newVal>=1) divUpd.text(newVal);
                 });
               // quantity
-              a.add-to.item_add.hvr-skew-backward(href='#') Add to cart
+              a.add-to.item_add.makeOrder(href='#' style="background: #049BFF; color: white; padding: 10px 20px; border-radius: 3px; text-transform: uppercase; font-size: 0.9em;") Add to cart
               .clearfix
           .clearfix
           //
@@ -290,6 +290,7 @@ html
             .clearfix
       // //footer
       script(src='/javascripts/imagezoom.js')
+      script(src='/javascripts/makeOrder.js')
       // jQuery (necessary for Bootstrap's JavaScript plugins)
       script(defer='', src='/javascripts/jquery.flexslider.js')
       link(rel='stylesheet', href='/stylesheets/flexslider.css', type='text/css', media='screen')

@@ -109,13 +109,11 @@ exports.biz_detail = function(req, res, next) {
         } else {
             var activeUser = req.user.id
         }
-        console.log(results.bizs_categories._id)
-        console.log('========================')
-        console.log(results.bizs_products.category)
         res.render('biz_detail', {
             title: 'Business Detail',
             biz: results.biz,
             biz_products: results.bizs_products,
+            biz_logo: `/uploads/${results.biz.biz_logo}`,
             biz_banner: `/uploads/${results.biz.biz_banner}`,
             biz_id: results.biz.id,
             active_user: activeUser,
@@ -159,6 +157,8 @@ exports.biz_create_post = [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
         imageModuleReference.upload(req, res, (err) => {
+            var bizLogo = req.files[0].filename
+            var bizBanner = req.files[1].filename
             if (err) {
                 console.log(err)
                 req.session.returnTo = req.path;
@@ -182,7 +182,7 @@ exports.biz_create_post = [
                     res.render('login')
                 }
             } else {
-                if (req.file == undefined) {
+                if (req.files == undefined) {
                     console.log('Error: No File Selected!')
                 } else {
                     // Create a Biz object with escaped and trimmed data.
@@ -196,7 +196,8 @@ exports.biz_create_post = [
                             category: req.body.name,
                             location: req.body.location,
                             phoneNo: req.body.phoneNo,
-                            biz_banner: req.file.filename
+                            biz_logo: bizLogo,
+                            biz_banner: bizBanner
                         });
                         if (!errors.isEmpty()) {
 
@@ -292,7 +293,12 @@ exports.biz_delete_post = function(req, res, next) {
             }
             fs.unlink("./public/uploads/" + results.biz.biz_banner, (err) => {
                 if (err) {
-                    console.log("failed to delete local image:" + err);
+                    console.log("failed to delete local banner image:" + err);
+                }
+            });
+            fs.unlink("./public/uploads/" + results.biz.biz_logo, (err) => {
+                if (err) {
+                    console.log("failed to delete local logo image:" + err);
                 }
             });
             var productsDelete = [];
@@ -390,10 +396,9 @@ exports.biz_update_post = [
             if (err) {
                 console.log(err)
             } else {
-                if (req.file == undefined) {
+                if (req.files == undefined) {
                     console.log('Error: No File Selected!')
                 } else {
-                    console.log(req.file.filename)
                     // Create a Biz object with escaped and trimmed data.
                     User.findOne({
                         googleId: req.user.id
@@ -403,7 +408,8 @@ exports.biz_update_post = [
                             biz_name: req.body.biz_name,
                             user: result.id,
                             category: req.body.name,
-                            biz_banner: req.file.filename,
+                            biz_logo: req.files[0].filename,
+                            biz_banner: req.files[1].filename,
                             _id: req.params.id //This is required, or a new ID will be assigned!
                         });
                         if (!errors.isEmpty()) {
@@ -422,6 +428,7 @@ exports.biz_update_post = [
                                     product_name: 'Create Business',
                                     biz: req.body,
                                     categories: results.categories,
+                                    bizLogo: req.body.businessLogo,
                                     bizImage: req.body.myImage,
                                     errors: errors.array()
                                 });
