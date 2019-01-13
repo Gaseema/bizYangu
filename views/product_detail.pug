@@ -32,12 +32,14 @@ html
         .container
           .col-sm-5.col-md-offset-2.header-login
             ul
-              li
-                a(href='login.html') Login
-              li
-                a(href='register.html') Register
-              li
-                a(href='checkout.html') Checkout
+                if(user == false)
+                  li
+                    a(href='/auth/google') Login
+                  li
+                    a(href='/auth/google') Register
+                else
+                    li
+                        a(href='/logout') Logout
           .col-sm-5.header-social
             ul
               li
@@ -168,7 +170,7 @@ html
                 if(newVal>=1) divUpd.text(newVal);
                 });
               // quantity
-              a.add-to.item_add.makeOrder(href='#' style="background: #049BFF; color: white; padding: 10px 20px; border-radius: 3px; text-transform: uppercase; font-size: 0.9em;") Add to cart
+              button.add-to.item_add.makeOrder(href='#' style="background: #049BFF; color: white; padding: 10px 20px; border-radius: 3px; text-transform: uppercase; font-size: 0.9em;") Add to cart
               .clearfix
           .clearfix
           //
@@ -251,20 +253,9 @@ html
             .col-md-3.footer-middle-in
               h6 Tags
               ul.tag-in
-                li
-                  a(href='#') Lorem
-                li
-                  a(href='#') Sed
-                li
-                  a(href='#') Ipsum
-                li
-                  a(href='#') Contrary
-                li
-                  a(href='#') Chunk
-                li
-                  a(href='#') Amet
-                li
-                  a(href='#') Omnis
+                for category in bizs_categories
+                    li
+                      a(href="/biz/" + active_biz._id  + "/prodcategory/"+ category.id) #{category.name}
             .col-md-3.footer-middle-in
               h6 Newsletter
               span Sign up for News Letter
@@ -285,12 +276,14 @@ html
                 a(href='#')
                   img.img-responsive(src='images/f3.png', alt='')
             p.footer-class
-              | © 2016 Shopin. All Rights Reserved | Design by
-              a(href='http://w3layouts.com/', target='_blank') W3layouts
+              | © 2018
+              a(href='/', target='_blank' style="padding-left: 10px;") BizYangu
+              span(style="padding-left: 10px;") All Rights Reserved
             .clearfix
       // //footer
+      script(src='/javascripts/gloabal.js')
+      script(src='/javascripts/productDetail.js')
       script(src='/javascripts/imagezoom.js')
-      script(src='/javascripts/makeOrder.js')
       // jQuery (necessary for Bootstrap's JavaScript plugins)
       script(defer='', src='/javascripts/jquery.flexslider.js')
       link(rel='stylesheet', href='/stylesheets/flexslider.css', type='text/css', media='screen')

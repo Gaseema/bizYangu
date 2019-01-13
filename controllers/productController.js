@@ -32,6 +32,7 @@ exports.product_list = function(req, res, next) {
 
 // Display detail page for a specific product.
 exports.product_detail = function(req, res, next) {
+    req.session.returnTo = req.path;
     async.parallel({
         product: function(callback) {
             Product.findById(req.params.id)
@@ -57,6 +58,14 @@ exports.product_detail = function(req, res, next) {
                 })
                 .exec(callback)
         },
+        user: function(callback) {
+            // Check if user is logged in to place an order
+            if (req.isAuthenticated()) {
+                callback(null, true)
+            } else {
+                callback(null, false)
+            }
+        },
     }, function(err, results) {
         if (err) {
             return next(err);
@@ -74,7 +83,8 @@ exports.product_detail = function(req, res, next) {
             bizs_categories: results.bizs_categories,
             biz_id: results.product.biz._id,
             product_pic: `/uploads/${results.product.product_pic}`,
-            active_biz: results.business
+            active_biz: results.business,
+            user: results.user,
         });
     });
 };

@@ -303,9 +303,14 @@ app.get('/shoppingcart/biz=:bizId', shoppingcart_controller.bizShoppingcart_list
 //app.post('/shoppingcart/create', orders_controller.order_create_post);
 
 app.get('/logout', (req, res) => {
-    req.logout();
-    req.session = null;
-    res.redirect('/');
+    if(req.session.returnTo.includes('/biz/')){
+        req.logout();
+        res.redirect(req.session.returnTo || '/');
+        req.session = null;
+    }else{
+        req.logout();
+        res.redirect('/');
+    }
 });
 
 app.get('/auth/google', passport.authenticate('google', {
