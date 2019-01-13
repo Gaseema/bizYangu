@@ -15,10 +15,10 @@ var ProductCategory = require('../models/productCategory');
 var imageModuleReference = require('../app');
 
 // Display list of all products.
-exports.product_list = function (req, res, next) {
+exports.product_list = function(req, res, next) {
     Product.find({}, 'product_name biz')
         .populate('biz')
-        .exec(function (err, list_products) {
+        .exec(function(err, list_products) {
             if (err) {
                 return next(err);
             }
@@ -31,14 +31,14 @@ exports.product_list = function (req, res, next) {
 };
 
 // Display detail page for a specific product.
-exports.product_detail = function (req, res, next) {
+exports.product_detail = function(req, res, next) {
     async.parallel({
-        product: function (callback) {
+        product: function(callback) {
             Product.findById(req.params.id)
                 .populate('biz')
                 .exec(callback);
         },
-        product_recommend: function (callback) {
+        product_recommend: function(callback) {
             Product.find({}, callback).limit(4)
         },
         bizs_categories: function(callback) {
@@ -49,7 +49,15 @@ exports.product_detail = function (req, res, next) {
                     .exec(callback)
             })
         },
-    }, function (err, results) {
+        business: function(callback) {
+            Biz.findById(req.params.bizId, function(err, result) {
+                    if (err) {
+                        console.log(err);
+                    }
+                })
+                .exec(callback)
+        },
+    }, function(err, results) {
         if (err) {
             return next(err);
         }
@@ -63,34 +71,35 @@ exports.product_detail = function (req, res, next) {
             title: 'Title',
             product: results.product,
             recommended: results.product_recommend,
-            bizs_categories:results.bizs_categories,
+            bizs_categories: results.bizs_categories,
             biz_id: results.product.biz._id,
-            product_pic: `/uploads/${results.product.product_pic}`
+            product_pic: `/uploads/${results.product.product_pic}`,
+            active_biz: results.business
         });
     });
 };
 
 // Display product create form on GET.
-exports.product_create_get = function (req, res, next) {
+exports.product_create_get = function(req, res, next) {
     req.session.returnTo = req.path;
     if (req.isAuthenticated()) {
         // Get all Biz and categories, which we can use for adding to our product.
         User.findOne({
             googleId: req.user.id
-        }, function (err, result) {
+        }, function(err, result) {
             if (err) throw err;
             async.parallel({
-                bizs: function (callback) {
+                bizs: function(callback) {
                     //Biz.find(callback);
                     Biz.find({
                         user: result.id
                     }, callback)
                 },
-                prodCategories: function (callback) {
+                prodCategories: function(callback) {
                     //Biz.find(callback);
                     ProductCategory.find(callback);
                 },
-            }, function (err, results) {
+            }, function(err, results) {
                 if (err) {
                     return next(err);
                 }
@@ -139,13 +148,13 @@ exports.product_create_post = [
 
                         // Get all businesses and categories for form.
                         async.parallel({
-                            bizs: function (callback) {
+                            bizs: function(callback) {
                                 Biz.find(callback)
                             },
-                            prodCategories: function (callback) {
+                            prodCategories: function(callback) {
                                 ProductCategory.find(callback)
                             },
-                        }, function (err, results) {
+                        }, function(err, results) {
                             if (err) {
                                 return next(err);
                             }
@@ -160,7 +169,7 @@ exports.product_create_post = [
                         return;
                     } else {
                         // Data from form is valid. Save product.
-                        product.save(function (err) {
+                        product.save(function(err) {
                             if (err) {
                                 return next(err);
                             }
@@ -175,16 +184,16 @@ exports.product_create_post = [
 ];
 
 // Display product delete form on GET.
-exports.product_delete_get = function (req, res, next) {
+exports.product_delete_get = function(req, res, next) {
     req.session.returnTo = req.path;
     if (req.isAuthenticated()) {
         // Get all Biz and categories, which we can use for adding to our product.
         async.parallel({
-            product: function (callback) {
+            product: function(callback) {
                 //Biz.find(callback);
                 Product.findById(req.params.id).exec(callback)
             },
-        }, function (err, results) {
+        }, function(err, results) {
             if (err) {
                 return next(err);
             }
@@ -201,12 +210,12 @@ exports.product_delete_get = function (req, res, next) {
 };
 
 // Handle product delete on POST.
-exports.product_delete_post = function (req, res, next) {
+exports.product_delete_post = function(req, res, next) {
     async.parallel({
-        product: function (callback) {
+        product: function(callback) {
             Product.findById(req.body.productid).exec(callback)
         },
-    }, function (err, results) {
+    }, function(err, results) {
         if (err) {
             return next(err);
         }
@@ -223,26 +232,26 @@ exports.product_delete_post = function (req, res, next) {
 };
 
 // Display product update form on GET.
-exports.product_update_get = function (req, res, next) {
+exports.product_update_get = function(req, res, next) {
     // Get product, businesses and categories for form.
     User.findOne({
         googleId: req.user.id
-    }, function (err, user) {
+    }, function(err, user) {
         async.parallel({
-            product: function (callback) {
+            product: function(callback) {
                 Product.findById(req.params.id).populate('biz').populate('category').exec(callback);
             },
-            bizs: function (callback) {
+            bizs: function(callback) {
                 //Biz.find(callback);
                 Biz.find({
                     user: user.id
                 }, callback)
             },
-            prodCategories: function (callback) {
+            prodCategories: function(callback) {
                 //Biz.find(callback);
                 ProductCategory.find(callback);
             },
-        }, function (err, results) {
+        }, function(err, results) {
             if (err) {
                 return next(err);
             }
@@ -295,13 +304,13 @@ exports.product_update_post = [
 
                         // Get all businesses and categories for form.
                         async.parallel({
-                            bizs: function (callback) {
+                            bizs: function(callback) {
                                 Biz.find(callback)
                             },
-                            prodCategories: function (callback) {
+                            prodCategories: function(callback) {
                                 ProductCategory.find(callback)
                             },
-                        }, function (err, results) {
+                        }, function(err, results) {
                             if (err) {
                                 return next(err);
                             }
@@ -316,7 +325,7 @@ exports.product_update_post = [
                         return;
                     } else {
                         // Data from form is valid. Update the record.
-                        Product.findByIdAndUpdate(req.params.id, product, {}, function (err, theproduct) {
+                        Product.findByIdAndUpdate(req.params.id, product, {}, function(err, theproduct) {
                             if (err) {
                                 return next(err);
                             }

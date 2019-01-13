@@ -24,9 +24,9 @@ html
   body
     // header
     .header(style="position: relative;border-bottom: solid #e6e6e6 1px;")
-      .container(style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
-        a(href='index.html', style=' position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90%;')
-          img(src='/images/gillette-logo.png', alt='', style=' width: 100%; /* width: -webkit-fill-available; */')
+      a.container(href='/biz/' + active_biz._id, style=' position: absolute; background: white; width: 140px; height: 100%; left: 10%; padding: 0px; -webkit-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); box-shadow: 0px 0px 25px -6px #0490ED;')
+        div(style='background: url(/uploads/' + active_biz.biz_logo + '); background-size: contain; background-position: 50% 50%; background-repeat: no-repeat; height: 100%; width: 100%;')
+
 
       .header-top
         .container
